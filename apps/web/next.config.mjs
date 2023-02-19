@@ -26,7 +26,8 @@ const sentryWebpackPluginOptions =
       }
     : {
         silent: true, // Suppresses all logs
-        dryRun: !process.env.SENTRY_AUTH_TOKEN,
+        // dryRun: !process.env.SENTRY_AUTH_TOKEN,
+        dryRun: true,
       }
 
 /** @type {import('next').NextConfig} */
