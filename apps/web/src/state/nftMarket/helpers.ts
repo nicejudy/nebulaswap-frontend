@@ -1175,6 +1175,8 @@ export const getCompleteAccountNftData = async (
     getAccountNftsOnChainMarketData(collectionsWithDelist, account),
   ])
 
+  console.log(walletNftIdsWithCollectionAddress)
+
   if (profileNftWithCollectionAddress?.tokenId) {
     walletNftIdsWithCollectionAddress.unshift(profileNftWithCollectionAddress)
   }
