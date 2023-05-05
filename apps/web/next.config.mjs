@@ -63,6 +63,10 @@ const config = {
         protocol: 'https',
         hostname: 'static-nft.pancakeswap.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'ipfs.io',
+      },
     ],
     unoptimized: true,
   },
