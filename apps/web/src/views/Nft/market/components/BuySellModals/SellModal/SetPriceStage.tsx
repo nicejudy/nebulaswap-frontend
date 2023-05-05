@@ -6,6 +6,7 @@ import { useBNBBusdPrice } from 'hooks/useBUSDPrice'
 import { useTranslation } from '@pancakeswap/localization'
 import { NftToken } from 'state/nftMarket/types'
 import { useGetCollection } from 'state/nftMarket/hooks'
+import { COLLECTION_DATA } from 'config/constants/nft'
 import { Divider } from '../shared/styles'
 import { GreyedOutContainer, BnbAmountCell, RightAlignedInput, FeeAmountCell } from './styles'
 
@@ -41,6 +42,7 @@ const SetPriceStage: React.FC<React.PropsWithChildren<SetPriceStageProps>> = ({
   const priceIsValid = !price || Number.isNaN(parseFloat(price)) || parseFloat(price) <= 0
 
   const { creatorFee = '', tradingFee = '' } = useGetCollection(nftToSell.collectionAddress) || {}
+  // const { creatorFee = '', tradingFee = '' } = COLLECTION_DATA || {}
   const creatorFeeAsNumber = parseFloat(creatorFee)
   const tradingFeeAsNumber = parseFloat(tradingFee)
   const bnbPrice = useBNBBusdPrice()

@@ -34,15 +34,15 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({ collection }) 
   const itemsConfig = [
     {
       label: t('Items'),
-      href: `${nftsBaseUrl}/collections/${collectionAddress}`,
+      href: `${nftsBaseUrl}`,
     },
     {
       label: t('Traits'),
-      href: `${nftsBaseUrl}/collections/${collectionAddress}#traits`,
+      href: `${nftsBaseUrl}#traits`,
     },
     {
       label: t('Activity'),
-      href: `${nftsBaseUrl}/collections/${collectionAddress}#activity`,
+      href: `${nftsBaseUrl}#activity`,
     },
   ]
 

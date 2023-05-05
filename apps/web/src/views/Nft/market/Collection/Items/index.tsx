@@ -5,15 +5,19 @@ import { useGetCollection } from 'state/nftMarket/hooks'
 import { useTranslation } from '@pancakeswap/localization'
 import Container from 'components/Layout/Container'
 import { isAddress } from 'utils'
+import { COLLECTION_DATA } from 'config/constants/nft'
 import { pancakeBunniesAddress } from '../../constants'
 import PancakeBunniesCollectionNfts from './PancakeBunniesCollectionNfts'
 import CollectionWrapper from './CollectionWrapper'
 
 const Items = () => {
-  const collectionAddress = useRouter().query.collectionAddress as string
+  // const collectionAddress = useRouter().query.collectionAddress as string
+  const collectionAddress = COLLECTION_DATA.address
   const [sortBy, setSortBy] = useState('updatedAt')
   const { t } = useTranslation()
   const collection = useGetCollection(collectionAddress)
+  // const collection = COLLECTION_DATA
+  console.log(collection)
   const isPBCollection = isAddress(collectionAddress) === pancakeBunniesAddress
 
   const sortByItems = [

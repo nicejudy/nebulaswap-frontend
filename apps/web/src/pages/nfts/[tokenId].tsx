@@ -4,6 +4,7 @@ import { getCollection, getNftApi } from 'state/nftMarket/helpers'
 import { NftToken } from 'state/nftMarket/types'
 // eslint-disable-next-line camelcase
 import { SWRConfig, unstable_serialize } from 'swr'
+import { COLLECTION_DATA } from 'config/constants/nft'
 
 const IndividualNFTPage = ({ fallback = {} }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
@@ -26,7 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { tokenId } = params
-  const collectionAddress = "0x6f1Dc8a50489C96B6c09bb2aEc28c4043fB1A802"
+  const collectionAddress = COLLECTION_DATA.address
 
   if (typeof collectionAddress !== 'string' || typeof tokenId !== 'string') {
     return {
@@ -35,7 +36,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const metadata = await getNftApi(collectionAddress, tokenId)
-  const collection = await getCollection(collectionAddress)
+  // const collection = await getCollection(collectionAddress)
+  const collection = COLLECTION_DATA
   if (!metadata) {
     return {
       notFound: true,

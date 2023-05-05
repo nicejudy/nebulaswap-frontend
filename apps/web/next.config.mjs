@@ -64,6 +64,7 @@ const config = {
         hostname: 'static-nft.pancakeswap.com',
       },
     ],
+    unoptimized: true,
   },
   async rewrites() {
     return [

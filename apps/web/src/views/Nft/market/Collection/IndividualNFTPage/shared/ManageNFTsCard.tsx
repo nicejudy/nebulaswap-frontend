@@ -140,9 +140,11 @@ const CollectiblesByLocation: React.FC<React.PropsWithChildren<CollectiblesByLoc
 }
 
 interface ManageNftsCardProps {
+  nft: NftToken
   collection: Collection
   tokenId?: string | number
   lowestPrice?: string
+  isOwnNft: boolean
   onSuccess?: () => void
 }
 
@@ -150,16 +152,18 @@ const getNftFilter = (location: NftLocation) => {
   return (nft: NftToken, collectionAddress: string, tokenId: string | number): boolean => {
     return (
       isAddress(nft.collectionAddress) === isAddress(collectionAddress) &&
-      (tokenId ? nft.attributes[0].value === tokenId : true) &&
+      (tokenId ? nft.tokenId === tokenId : true) &&
       nft.location === location
     )
   }
 }
 
 const ManageNFTsCard: React.FC<React.PropsWithChildren<ManageNftsCardProps>> = ({
+  nft,
   collection,
   tokenId,
   lowestPrice,
+  isOwnNft,
   onSuccess,
 }) => {
   const { t } = useTranslation()

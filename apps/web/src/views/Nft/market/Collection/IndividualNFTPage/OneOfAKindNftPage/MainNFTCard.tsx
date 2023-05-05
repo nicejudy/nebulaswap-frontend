@@ -36,6 +36,8 @@ const MainNFTCard: React.FC<React.PropsWithChildren<MainNFTCardProps>> = ({
   )
   const [onEditProfileModal] = useModal(<EditProfileModal />, false)
 
+  const [onPresentStakeModal] = useModal(<BuyModal nftToBuy={nft} />)
+
   const ownerButtons = (
     <Flex flexDirection={['column', 'column', 'row']}>
       <Button
@@ -68,8 +70,8 @@ const MainNFTCard: React.FC<React.PropsWithChildren<MainNFTCardProps>> = ({
         <Container flexDirection={['column-reverse', null, 'row']}>
           <Flex flex="2">
             <Box>
-              <CollectionLink to={`${nftsBaseUrl}/collections/${nft.collectionAddress}`}>
-                {nft?.collectionName}
+              <CollectionLink to={`${nftsBaseUrl}`}>
+                Go to back
               </CollectionLink>
               <Text fontSize="40px" bold mt="12px">
                 {nft.name}
@@ -105,16 +107,28 @@ const MainNFTCard: React.FC<React.PropsWithChildren<MainNFTCardProps>> = ({
               )}
               {isOwnNft && ownerButtons}
               {!isOwnNft && (
-                <Button
-                  minWidth="168px"
-                  disabled={!nft.marketData?.isTradable}
-                  mr="16px"
-                  width={['100%', null, 'max-content']}
-                  mt="24px"
-                  onClick={onPresentBuyModal}
-                >
-                  {t('Buy')}
-                </Button>
+                <Flex flexDirection={['column', null, 'row']} alignItems="center">
+                  <Button
+                    minWidth="168px"
+                    disabled={!nft.marketData?.isTradable}
+                    mr="16px"
+                    width={['100%', null, 'max-content']}
+                    mt="24px"
+                    onClick={onPresentBuyModal}
+                  >
+                    {t('Buy')}
+                  </Button>
+                  <Button
+                    minWidth="168px"
+                    disabled={!nft.marketData?.isTradable}
+                    mr="16px"
+                    width={['100%', null, 'max-content']}
+                    mt="24px"
+                    onClick={onPresentStakeModal}
+                  >
+                    {t('Stake OXG')}
+                  </Button>
+                </Flex>
               )}
             </Box>
           </Flex>

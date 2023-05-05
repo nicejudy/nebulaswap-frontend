@@ -19,6 +19,7 @@ import useSWRInfinite from 'swr/infinite'
 import isEmpty from 'lodash/isEmpty'
 import uniqBy from 'lodash/uniqBy'
 import fromPairs from 'lodash/fromPairs'
+import { COLLECTION_DATA } from 'config/constants/nft'
 import { REQUEST_SIZE } from '../Collection/config'
 
 interface ItemListingSettings {

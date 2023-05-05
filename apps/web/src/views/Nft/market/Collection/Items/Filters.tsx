@@ -9,6 +9,7 @@ import { useTranslation } from '@pancakeswap/localization'
 import { Item, ListTraitFilter } from 'views/Nft/market/components/Filters'
 import { useNftStorage } from 'state/nftMarket/storage'
 import groupBy from 'lodash/groupBy'
+import { COLLECTION_DISTRIBUTION } from 'config/constants/nft'
 import useGetCollectionDistribution from '../../hooks/useGetCollectionDistribution'
 import ClearAllButton from './ClearAllButton'
 import SortSelect from './SortSelect'
@@ -86,7 +87,8 @@ const ScrollableFlexContainer = styled(Flex)`
 `
 
 const Filters: React.FC<React.PropsWithChildren<FiltersProps>> = ({ address, attributes }) => {
-  const { data } = useGetCollectionDistribution(address)
+  // const { data } = useGetCollectionDistribution(address)
+  const { data } = COLLECTION_DISTRIBUTION
   const { t } = useTranslation()
   const showOnlyNftsOnSale = useGetNftShowOnlyOnSale(address)
   const { setShowOnlyOnSale } = useNftStorage()

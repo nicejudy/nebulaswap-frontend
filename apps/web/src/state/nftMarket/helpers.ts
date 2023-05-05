@@ -17,6 +17,7 @@ import nftMarketAbi from 'config/abi/nftMarket.json'
 import fromPairs from 'lodash/fromPairs'
 import pickBy from 'lodash/pickBy'
 import lodashSize from 'lodash/size'
+import { COLLECTION_DATA } from 'config/constants/nft'
 import {
   ApiCollection,
   ApiCollections,
@@ -112,10 +113,12 @@ export const getCollections = async (): Promise<Record<string, Collection>> => {
  */
 export const getCollection = async (collectionAddress: string): Promise<Record<string, Collection> | null> => {
   try {
-    const [collection, collectionMarket] = await Promise.all([
-      getCollectionApi(collectionAddress),
+    // const [collection, collectionMarket] = await Promise.all([
+    const [collectionMarket] = await Promise.all([
+      // getCollectionApi(collectionAddress),
       getCollectionSg(collectionAddress),
     ])
+    const collection = COLLECTION_DATA
     let collectionsTotalSupply
     try {
       collectionsTotalSupply = await fetchCollectionsTotalSupply([collection])
@@ -199,7 +202,8 @@ export const getNftApi = async (
   collectionAddress: string,
   tokenId: string,
 ): Promise<ApiResponseSpecificToken['data']> => {
-  const res = await fetch(`${API_NFT}/collections/${collectionAddress}/tokens/${tokenId}`)
+  // return {"tokenId":"1","name":"3D Brave Tigers #1","description":"3d Brave tigers include 10,000 unique nfts which each tiger has its own story,live like a king tiger","image":{"original":"https://static-nft.pancakeswap.com/mainnet/0x6f1Dc8a50489C96B6c09bb2aEc28c4043fB1A802/3-d-brave-tigers-1.png","thumbnail":"https://static-nft.pancakeswap.com/mainnet/0x6f1Dc8a50489C96B6c09bb2aEc28c4043fB1A802/3-d-brave-tigers-1-1000.png","mp4":null,"webm":null,"gif":null},"createdAt":"2022-06-17T11:43:08.585Z","updatedAt":"2022-06-17T11:43:08.585Z","attributes":[{"traitType":"Backgrounds","value":"Pink"},{"traitType":"Cloths","value":"Viking outfit"},{"traitType":"Hats","value":"NY Hat"},{"traitType":"Sunglasses","value":"Blue shades"}],"collection":{"name":"3D brave tigers"}}
+  const res = await fetch(`https://ipfs.io/ipfs/QmQ2epRTFzWbpGeMb547Xf1WqvWbmnukE3JUaH2QdNZjdj/${tokenId}`)
   if (res.ok) {
     const json = await res.json()
     return json.data
@@ -401,6 +405,39 @@ export const getMarketDataForTokenIds = async (
 }
 
 export const getNftsOnChainMarketData = async (
+  collectionAddress: string,
+  tokenIds: string[],
+): Promise<TokenMarketData[]> => {
+  try {
+    const nftMarketContract = getNftMarketContract()
+    const response = await nftMarketContract.viewAsksByCollectionAndTokenIds(collectionAddress.toLowerCase(), tokenIds)
+    const askInfo = response?.askInfo
+
+    if (!askInfo) return []
+
+    return askInfo
+      .map((tokenAskInfo, index) => {
+        if (!tokenAskInfo.seller || !tokenAskInfo.price) return null
+        const currentSeller = tokenAskInfo.seller
+        const isTradable = currentSeller.toLowerCase() !== NOT_ON_SALE_SELLER
+        const currentAskPrice = tokenAskInfo.price && formatBigNumber(tokenAskInfo.price)
+
+        return {
+          collection: { id: collectionAddress.toLowerCase() },
+          tokenId: tokenIds[index],
+          currentSeller,
+          isTradable,
+          currentAskPrice,
+        }
+      })
+      .filter(Boolean)
+  } catch (error) {
+    console.error('Failed to fetch NFTs onchain market data', error)
+    return []
+  }
+}
+
+export const getNftsOnChainData = async (
   collectionAddress: string,
   tokenIds: string[],
 ): Promise<TokenMarketData[]> => {
@@ -873,6 +910,7 @@ export const fetchNftsFiltered = async (
   collectionAddress: string,
   filters: Record<string, string | number>,
 ): Promise<ApiTokenFilterResponse> => {
+  console.log(stringify(filters))
   const res = await fetch(`${API_NFT}/collections/${collectionAddress}/filter?${stringify(filters)}`)
 
   if (res.ok) {

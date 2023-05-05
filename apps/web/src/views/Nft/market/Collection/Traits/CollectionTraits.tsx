@@ -7,6 +7,7 @@ import { ArrowDownIcon, ArrowUpIcon, Flex, Skeleton, Table, Td, Th } from '@panc
 import { formatNumber } from '@pancakeswap/utils/formatBalance'
 import CollapsibleCard from 'components/CollapsibleCard'
 import { useTranslation } from '@pancakeswap/localization'
+import { COLLECTION_DISTRIBUTION } from 'config/constants/nft'
 import { SortType } from '../../types'
 import { StyledSortButton, TableWrapper } from './styles'
 import useGetCollectionDistribution from '../../hooks/useGetCollectionDistribution'
@@ -16,7 +17,9 @@ interface CollectionTraitsProps {
 }
 
 const CollectionTraits: React.FC<React.PropsWithChildren<CollectionTraitsProps>> = ({ collectionAddress }) => {
-  const { data, isFetching } = useGetCollectionDistribution(collectionAddress)
+  // const { data, isFetching } = useGetCollectionDistribution(collectionAddress)
+  const data = COLLECTION_DISTRIBUTION.data;
+  const isFetching = false;
   const [raritySort, setRaritySort] = useState<Record<string, SortType>>({})
   const { t } = useTranslation()
 

@@ -43,16 +43,20 @@ const config: (
 ) => ConfigMenuItemsType[] = (t, isDark, languageCode, chainId) =>
   [
     {
-      label: t('Swap'),
+      label: t('Trade'),
       icon: SwapIcon,
       fillIcon: SwapFillIcon,
       href: '/swap',
       showItemsOnMobile: false,
       items: [
-        // {
-        //   label: t('Swap'),
-        //   href: '/swap',
-        // },
+        {
+          label: t('Swap'),
+          href: '/swap',
+        },
+        {
+          label: t('Liquidity'),
+          href: '/liquidity',
+        },
         // {
         //   label: t('Limit'),
         //   href: '/limit-orders',
@@ -75,50 +79,66 @@ const config: (
         // },
       ].map((item) => addMenuItemSupported(item, chainId)),
     },
+    // {
+    //   label: t('Liquidity'),
+    //   icon: SwapIcon,
+    //   fillIcon: SwapFillIcon,
+    //   href: '/liquidity',
+    //   showItemsOnMobile: false,
+    //   items: [].map((item) => addMenuItemSupported(item, chainId)),
+    // },
     {
-      label: t('Liquidity'),
-      icon: SwapIcon,
-      fillIcon: SwapFillIcon,
-      href: '/liquidity',
-      showItemsOnMobile: false,
-      items: [].map((item) => addMenuItemSupported(item, chainId)),
-    },
-    {
-      label: t('Farms'),
+      label: t('Earn'),
       href: '/farms',
       icon: EarnIcon,
       fillIcon: EarnFillIcon,
       image: '/images/decorations/pe2.png',
       items: [
-        // {
-        //   label: t('Farms'),
-        //   href: '/farms',
-        // },
-        // {
-        //   label: t('Pools'),
-        //   href: '/pools',
-        //   supportChainIds: SUPPORT_ONLY_BSC,
-        // },
+        {
+          label: t('Farms'),
+          href: '/farms',
+        },
+        {
+          label: t('Pools'),
+          href: '/pools',
+          // supportChainIds: SUPPORT_ONLY_BSC,
+        },
       ].map((item) => addMenuItemSupported(item, chainId)),
     },
     {
-      label: t('Pools'),
-      href: '/pools',
-      icon: EarnIcon,
-      fillIcon: EarnFillIcon,
-      image: '/images/decorations/pe2.png',
+      label: t('Margin'),
+      href: '/long',
+      icon: SwapIcon,
+      fillIcon: SwapFillIcon,
       items: [
-        // {
-        //   label: t('Farms'),
-        //   href: '/farms',
-        // },
-        // {
-        //   label: t('Pools'),
-        //   href: '/pools',
-        //   supportChainIds: SUPPORT_ONLY_BSC,
-        // },
+        {
+          label: t('Long'),
+          href: '/long',
+        },
+        {
+          label: t('Short'),
+          href: '/short',
+        },
       ].map((item) => addMenuItemSupported(item, chainId)),
     },
+    // {
+    //   label: t('Pools'),
+    //   href: '/pools',
+    //   icon: EarnIcon,
+    //   fillIcon: EarnFillIcon,
+    //   image: '/images/decorations/pe2.png',
+    //   items: [
+    //     // {
+    //     //   label: t('Farms'),
+    //     //   href: '/farms',
+    //     // },
+    //     // {
+    //     //   label: t('Pools'),
+    //     //   href: '/pools',
+    //     //   supportChainIds: SUPPORT_ONLY_BSC,
+    //     // },
+    //   ].map((item) => addMenuItemSupported(item, chainId)),
+    // },
     // {
     //   label: t('Win'),
     //   href: '/prediction',
