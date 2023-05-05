@@ -140,11 +140,11 @@ const CollectiblesByLocation: React.FC<React.PropsWithChildren<CollectiblesByLoc
 }
 
 interface ManageNftsCardProps {
-  nft: NftToken
+  nft?: NftToken
   collection: Collection
   tokenId?: string | number
   lowestPrice?: string
-  isOwnNft: boolean
+  isOwnNft?: boolean
   onSuccess?: () => void
 }
 
