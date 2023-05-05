@@ -140,10 +140,10 @@ const CollectiblesByLocation: React.FC<React.PropsWithChildren<CollectiblesByLoc
 }
 
 interface ManageNftsCardProps {
-  nft?: NftToken
   collection: Collection
   tokenId?: string | number
   lowestPrice?: string
+  nft?: NftToken
   isOwnNft?: boolean
   onSuccess?: () => void
 }
@@ -159,10 +159,10 @@ const getNftFilter = (location: NftLocation) => {
 }
 
 const ManageNFTsCard: React.FC<React.PropsWithChildren<ManageNftsCardProps>> = ({
-  nft,
   collection,
   tokenId,
   lowestPrice,
+  nft,
   isOwnNft,
   onSuccess,
 }) => {
@@ -181,9 +181,9 @@ const ManageNFTsCard: React.FC<React.PropsWithChildren<ManageNftsCardProps>> = (
   const forSaleFilter = getNftFilter(NftLocation.FORSALE)
   const profileFilter = getNftFilter(NftLocation.PROFILE)
 
-  const nftsInWallet = userNfts.filter((nft) => walletFilter(nft, collection.address, tokenId))
-  const nftsForSale = userNfts.filter((nft) => forSaleFilter(nft, collection.address, tokenId))
-  const profileNft = userNfts.filter((nft) => profileFilter(nft, collection.address, tokenId))
+  const nftsInWallet = userNfts.filter((nft1) => walletFilter(nft1, collection.address, tokenId))
+  const nftsForSale = userNfts.filter((nft1) => forSaleFilter(nft1, collection.address, tokenId))
+  const profileNft = userNfts.filter((nft1) => profileFilter(nft1, collection.address, tokenId))
 
   const userHasNoNfts = !isLoading && nftsInWallet.length === 0 && nftsForSale.length === 0 && profileNft.length === 0
   const totalNfts = nftsInWallet.length + nftsForSale.length + profileNft.length
