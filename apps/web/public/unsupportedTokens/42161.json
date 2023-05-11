@@ -1,0 +1,23 @@
+{
+    "name": "NebulaSwap",
+    "timestamp": "2023-05-11T20:23:09.284Z",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 25
+    },
+    "logoURI": "/images/1/tokens/nebula.png",
+    "keywords": [
+      "defi"
+    ],
+    "tokens": [
+      {
+        "name": "Nebula Token",
+        "symbol": "NEBULA",
+        "address": "0xDE29f37Ab5ad889Ef704D967BfF8bB575bC20dA9",
+        "chainId": 42161,
+        "decimals": 18,
+        "logoURI": "/images/1/tokens/nebula.png"
+      }
+    ]
+}

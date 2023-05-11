@@ -10,6 +10,7 @@ export const BSC_URLS = [PANCAKE_EXTENDED, CMC, COINGECKO]
 // List of official tokens list
 export const OFFICIAL_LISTS = [PANCAKE_EXTENDED]
 
+// export const UNSUPPORTED_LIST_URLS: string[] = ['/unsupportedTokens/42161.json']
 export const UNSUPPORTED_LIST_URLS: string[] = []
 export const WARNING_LIST_URLS: string[] = []
 

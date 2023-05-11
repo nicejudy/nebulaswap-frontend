@@ -8,8 +8,8 @@ declare module 'styled-components' {
 
 const GlobalStyle = createGlobalStyle`
   * {
-    // font-family: "Relative", sans-serif;
-    font-family: Poppins, sans-serif;
+    font-family: "Relative", sans-serif;
+    // font-family: Poppins, sans-serif;
   }
   body {
     background-color: ${({ theme }) => theme.colors.background};

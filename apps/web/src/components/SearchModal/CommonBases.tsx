@@ -59,8 +59,9 @@ export default function CommonBases({
   const { t } = useTranslation()
   const pinTokenDescText = commonBasesType === CommonBasesType.SWAP_LIMITORDER ? t('Common tokens') : t('Common bases')
 
-  const FIRST_LINE = [SUGGESTED_BASES[chainId][0], SUGGESTED_BASES[chainId][1]]
-  const SECOND_LINE = [SUGGESTED_BASES[chainId][2], SUGGESTED_BASES[chainId][3], SUGGESTED_BASES[chainId][4]]
+  const FIRST_LINE = [SUGGESTED_BASES[chainId][5]]
+  const THIRD_LINE = [SUGGESTED_BASES[chainId][0], SUGGESTED_BASES[chainId][1], SUGGESTED_BASES[chainId][2]]
+  const SECOND_LINE = [SUGGESTED_BASES[chainId][3], SUGGESTED_BASES[chainId][4]]
 
   return (
     <AutoColumn gap="md">
@@ -98,6 +99,19 @@ export default function CommonBases({
       </RowWrapper>
       <RowWrapper>
         {(chainId ? SECOND_LINE || [] : []).map((token: Token) => {
+          const selected = selectedCurrency?.equals(token)
+          return (
+            <ButtonWrapper key={`buttonBase#${token.address}`}>
+              <BaseWrapper onClick={() => !selected && onSelect(token)} disable={selected}>
+                <CurrencyLogo currency={token} style={{ marginRight: 8, borderRadius: '50%' }} />
+                <Text>{token.symbol}</Text>
+              </BaseWrapper>
+            </ButtonWrapper>
+          )
+        })}
+      </RowWrapper>
+      <RowWrapper>
+        {(chainId ? THIRD_LINE || [] : []).map((token: Token) => {
           const selected = selectedCurrency?.equals(token)
           return (
             <ButtonWrapper key={`buttonBase#${token.address}`}>

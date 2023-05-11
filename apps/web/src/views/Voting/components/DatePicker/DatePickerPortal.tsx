@@ -10,8 +10,8 @@ const StyledDatePickerPortal = styled.div`
     background: ${({ theme }) => theme.card.background};
     border-color: ${({ theme }) => theme.colors.cardBorder};
     color: ${({ theme }) => theme.colors.text};
-    // font-family: 'Relative', sans-serif;
-    font-family: Poppins, sans-serif;
+    font-family: 'Relative', sans-serif;
+    // font-family: Poppins, sans-serif;
   }
 
   .react-datepicker__header {
