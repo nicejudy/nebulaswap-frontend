@@ -18,6 +18,7 @@ import MoreFromThisCollection from '../shared/MoreFromThisCollection'
 import ActivityCard from './ActivityCard'
 import { useCompleteNft } from '../../../hooks/useCompleteNft'
 import ManageNFTsCard from '../shared/ManageNFTsCard'
+import TokenDataCard from '../shared/TokenDataCard'
 
 interface IndividualNFTPageProps {
   collectionAddress: string
@@ -38,6 +39,8 @@ const IndividualNFTPage: React.FC<React.PropsWithChildren<IndividualNFTPageProps
   const { combinedNft: nft, isOwn: isOwnNft, isProfilePic, refetch } = useCompleteNft(collectionAddress, tokenId)
 
   const properties = nft?.attributes
+
+  console.log(nft)
 
   const attributesRarity = useMemo(() => {
     if (distributionData && !isFetchingDistribution && properties) {
@@ -66,7 +69,8 @@ const IndividualNFTPage: React.FC<React.PropsWithChildren<IndividualNFTPageProps
       <MainNFTCard nft={nft} isOwnNft={isOwnNft} nftIsProfilePic={isProfilePic} onSuccess={refetch} />
       <TwoColumnsContainer flexDirection={['column', 'column', 'column', 'column', 'row']}>
         <Flex flexDirection="column" width="100%">
-          <ManageNFTsCard collection={collection} tokenId={tokenId} nft={nft} isOwnNft={isOwnNft} onSuccess={isOwnNft ? refetch : noop} />
+          {/* <ManageNFTsCard collection={collection} tokenId={tokenId} nft={nft} isOwnNft={isOwnNft} onSuccess={isOwnNft ? refetch : noop} /> */}
+          <TokenDataCard nftData={nft.marketData?.nftData[0]} userData={nft.marketData?.userData} />
           <PropertiesCard properties={properties} rarity={attributesRarity} />
           <DetailsCard contractAddress={collectionAddress} ipfsJson={nft?.marketData?.metadataUrl} />
         </Flex>

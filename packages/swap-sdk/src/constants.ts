@@ -2,7 +2,7 @@ import { Percent } from '@pancakeswap/swap-sdk-core'
 import { ERC20Token } from './entities/token'
 
 export enum ChainId {
-  ETHEREUM = 1,
+  ETHEREUM = 42161,
   GOERLI = 5,
   BSC = 56,
   BSC_TESTNET = 97,
@@ -13,7 +13,7 @@ export const ONE_HUNDRED_PERCENT = new Percent('1')
 
 export const FACTORY_ADDRESS = '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73'
 
-const FACTORY_ADDRESS_ETH = '0x1097053Fd2ea711dad45caCcc45EfF7548fCB362'
+const FACTORY_ADDRESS_ETH = '0x78fC0A3eC00158b80F3b52fA86C65163856B9bDb'
 
 export const FACTORY_ADDRESS_MAP: Record<number, string> = {
   [ChainId.ETHEREUM]: FACTORY_ADDRESS_ETH,
@@ -23,7 +23,7 @@ export const FACTORY_ADDRESS_MAP: Record<number, string> = {
 }
 export const INIT_CODE_HASH = '0x00fb7f630766e6a796048ea87d01acd3068e8ff67d078148a3fa3f4a84f69bd5'
 
-const INIT_CODE_HASH_ETH = '0x57224589c67f3f30a6b0d7a1b54cf3153ab84563bc609ef41dfb34f8b2974d2d'
+const INIT_CODE_HASH_ETH = '0x940c8eae20f7b390f4093b689cb5b9a5d8fdbd11eb212e2556c51a81c5e30fd9'
 export const INIT_CODE_HASH_MAP: Record<number, string> = {
   [ChainId.ETHEREUM]: INIT_CODE_HASH_ETH,
   [ChainId.GOERLI]: INIT_CODE_HASH_ETH,
@@ -34,7 +34,7 @@ export const INIT_CODE_HASH_MAP: Record<number, string> = {
 export const WETH9 = {
   [ChainId.ETHEREUM]: new ERC20Token(
     ChainId.ETHEREUM,
-    '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+    '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
     18,
     'WETH',
     'Wrapped Ether',

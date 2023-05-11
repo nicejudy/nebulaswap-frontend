@@ -8,7 +8,7 @@ const IfoLayout = styled(Box)`
 `
 export const IfoLayoutWrapper = styled(IfoLayout)`
   column-gap: 32px;
-  display: grid;
+  // display: flex;
   grid-template-columns: 1fr;
   align-items: flex-start;
 

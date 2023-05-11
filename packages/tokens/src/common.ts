@@ -9,6 +9,15 @@ export const CAKE_MAINNET = new ERC20Token(
   'https://pancakeswap.finance/',
 )
 
+export const NEBULA_ETH = new ERC20Token(
+  ChainId.ETHEREUM,
+  '0xDE29f37Ab5ad889Ef704D967BfF8bB575bC20dA9',
+  18,
+  'NEBULA',
+  'Nebula Token',
+  'https://nebulaswap.xyz/',
+)
+
 export const CAKE_TESTNET = new ERC20Token(
   ChainId.BSC_TESTNET,
   '0xFa60D973F7642B748046464e165A65B7323b0DEE',
@@ -38,7 +47,7 @@ export const USDC_TESTNET = new ERC20Token(
 
 export const USDC_ETH = new ERC20Token(
   ChainId.ETHEREUM,
-  '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+  '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8',
   6,
   'USDC',
   'USD Coin',
@@ -63,7 +72,7 @@ export const USDT_BSC = new ERC20Token(
 
 export const USDT_ETH = new ERC20Token(
   ChainId.ETHEREUM,
-  '0xdAC17F958D2ee523a2206206994597C13D831ec7',
+  '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9',
   6,
   'USDT',
   'Tether USD',
@@ -95,6 +104,15 @@ export const BUSD_ETH = new ERC20Token(
   'BUSD',
   'Binance USD',
   'https://www.paxos.com/busd/',
+)
+
+export const DAI_ETH = new ERC20Token(
+  ChainId.ETHEREUM,
+  '0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1',
+  18,
+  'DAI',
+  'Dai Stablecoin',
+  'https://makerdao.com/',
 )
 
 export const BUSD_GOERLI = new ERC20Token(
@@ -132,7 +150,7 @@ export const USDT = {
 
 export const WBTC_ETH = new ERC20Token(
   ChainId.ETHEREUM,
-  '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599',
+  '0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f',
   8,
   'WBTC',
   'Wrapped BTC',

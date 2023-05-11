@@ -351,7 +351,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   return (
     <FarmsContext.Provider value={providerValue}>
-      <PageHeader>
+      {/* <PageHeader>
         <FarmFlexWrapper justifyContent="space-between">
           <Box>
             <FarmH1 as="h1" scale="xxl" color="secondary" mb="24px">
@@ -375,7 +375,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
             </Box>
           )}
         </FarmFlexWrapper>
-      </PageHeader>
+      </PageHeader> */}
       <Page>
         <ControlContainer>
           <ViewControls>

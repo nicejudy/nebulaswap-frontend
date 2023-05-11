@@ -13,7 +13,7 @@ export const IfoPageLayout = ({ children }) => {
 
   return (
     <IfoProvider>
-      <SubMenuItems
+      {/* <SubMenuItems
         items={[
           {
             label: t('Latest'),
@@ -25,7 +25,7 @@ export const IfoPageLayout = ({ children }) => {
           },
         ]}
         activeItem={isExact ? '/ifo' : '/ifo/history'}
-      />
+      /> */}
       <Hero />
       {children}
     </IfoProvider>

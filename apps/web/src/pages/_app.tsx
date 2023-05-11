@@ -124,7 +124,7 @@ type NextPageWithLayout = NextPage & {
   mp?: boolean
   /**
    * allow chain per page, empty array bypass chain block modal
-   * @default [ChainId.BSC]
+   * @default [ChainId.ETHEREUM]
    * */
   chains?: number[]
   isShowScrollToTopButton?: true
@@ -160,7 +160,8 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
       <EasterEgg iterations={2} />
       <ToastListener />
       <FixedSubgraphHealthIndicator />
-      <NetworkModal pageSupportedChains={Component.chains} />
+      {/* <NetworkModal pageSupportedChains={Component.chains} /> */}
+      <NetworkModal pageSupportedChains={[42161]} />
       <TransactionsDetailModal />
       {isShowScrollToTopButton && <ScrollToTopButtonV2 />}
     </ProductionErrorBoundary>

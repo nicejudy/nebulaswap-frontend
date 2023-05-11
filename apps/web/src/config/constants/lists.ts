@@ -1,6 +1,7 @@
 export const PANCAKE_EXTENDED = 'https://tokens.pancakeswap.finance/pancakeswap-extended.json'
 export const COINGECKO = 'https://tokens.pancakeswap.finance/coingecko.json'
-export const COINGECKO_ETH = 'https://tokens.coingecko.com/uniswap/all.json'
+// export const COINGECKO_ETH = 'https://tokens.coingecko.com/uniswap/all.json'
+export const COINGECKO_ETH = 'https://tokens.coingecko.com/arbitrum-one/all.json'
 export const CMC = 'https://tokens.pancakeswap.finance/cmc.json'
 
 export const ETH_URLS = [COINGECKO_ETH]

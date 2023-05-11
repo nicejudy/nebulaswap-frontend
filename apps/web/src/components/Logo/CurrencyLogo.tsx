@@ -55,6 +55,14 @@ export default function CurrencyLogo({
     )
   }
 
+  if (currency?.symbol === "WBTC") {
+    return <StyledLogo badSrcs={BAD_SRCS} size={size} srcs={[`/images/1/tokens/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599.png`]} alt={`${currency?.symbol ?? 'token'} logo`} style={style} />
+  }
+
+  if (currency?.symbol === "NEBULA") {
+    return <StyledLogo badSrcs={BAD_SRCS} size={size} srcs={[`/images/1/tokens/nebula.png`]} alt={`${currency?.symbol ?? 'token'} logo`} style={style} />
+  }
+
   return (
     <StyledLogo badSrcs={BAD_SRCS} size={size} srcs={srcs} alt={`${currency?.symbol ?? 'token'} logo`} style={style} />
   )

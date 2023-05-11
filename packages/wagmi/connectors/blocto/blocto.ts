@@ -16,7 +16,7 @@ import { getAddress } from '@ethersproject/address'
 import { ExternalProvider, Web3Provider } from '@ethersproject/providers'
 
 const chainIdToNetwork: { [network: number]: string } = {
-  1: 'mainnet',
+  42161: 'mainnet',
   3: 'ropsten',
   4: 'rinkeby',
   42: 'kovan',
@@ -39,7 +39,7 @@ export class BloctoConnector extends Connector<EthereumProviderInterface, { defa
 
   constructor(
     config: { chains?: Chain[]; options: { defaultChainId: number; appId?: string } } = {
-      options: { defaultChainId: 56 },
+      options: { defaultChainId: 42161 },
     },
   ) {
     const chains = config.chains?.filter((c) => !!chainIdToNetwork[c.id])

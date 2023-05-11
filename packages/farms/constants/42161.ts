@@ -2,30 +2,30 @@ import { ethereumTokens } from '@pancakeswap/tokens'
 import { SerializedFarmConfig } from '@pancakeswap/farms'
 
 const farms: SerializedFarmConfig[] = [
-  // {
-  //   pid: 145,
-  //   vaultPid: 6,
-  //   lpSymbol: 'FUSE-WETH LP',
-  //   lpAddress: '0xF9b026786522251c08d8C49e154d036Ef3Ad8Cc7',
-  //   quoteToken: ethereumTokens.weth,
-  //   token: ethereumTokens.fuse,
-  // },
-  // {
-  //   pid: 143,
-  //   vaultPid: 5,
-  //   lpSymbol: 'STG-USDC LP',
-  //   lpAddress: '0x6cCA86CC27EB8c7C2d10B0672FE392CFC88e62ff',
-  //   quoteToken: ethereumTokens.usdc,
-  //   token: ethereumTokens.stg,
-  // },
-  // {
-  //   pid: 141,
-  //   vaultPid: 4,
-  //   lpSymbol: 'SDAO-WETH LP',
-  //   lpAddress: '0xDA7cF6a0CD5d5e8D10AB55d8bA58257813a239cA',
-  //   quoteToken: ethereumTokens.weth,
-  //   token: ethereumTokens.sdao,
-  // },
+  {
+    pid: 145,
+    vaultPid: 6,
+    lpSymbol: 'FUSE-WETH LP',
+    lpAddress: '0xF9b026786522251c08d8C49e154d036Ef3Ad8Cc7',
+    quoteToken: ethereumTokens.weth,
+    token: ethereumTokens.fuse,
+  },
+  {
+    pid: 143,
+    vaultPid: 5,
+    lpSymbol: 'STG-USDC LP',
+    lpAddress: '0x6cCA86CC27EB8c7C2d10B0672FE392CFC88e62ff',
+    quoteToken: ethereumTokens.usdc,
+    token: ethereumTokens.stg,
+  },
+  {
+    pid: 141,
+    vaultPid: 4,
+    lpSymbol: 'SDAO-WETH LP',
+    lpAddress: '0xDA7cF6a0CD5d5e8D10AB55d8bA58257813a239cA',
+    quoteToken: ethereumTokens.weth,
+    token: ethereumTokens.sdao,
+  },
   {
     pid: 126,
     vaultPid: 3,

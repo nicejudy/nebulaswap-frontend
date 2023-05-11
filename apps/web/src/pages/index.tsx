@@ -23,10 +23,10 @@ const IndexPage = ({ totalTx30Days, addressCount30Days, tvl }) => {
         },
       }}
     >
-      {/* <Home /> */}
-      <SwapFeaturesProvider>
+      <Home />
+      {/* <SwapFeaturesProvider>
         <Swap />
-      </SwapFeaturesProvider>
+      </SwapFeaturesProvider> */}
     </SWRConfig>
   )
 }

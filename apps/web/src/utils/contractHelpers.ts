@@ -43,6 +43,7 @@ import {
   getNonBscVaultAddress,
   getCrossFarmingSenderAddress,
   getCrossFarmingReceiverAddress,
+  getNftAddress,
 } from 'utils/addressHelpers'
 
 // ABI
@@ -81,6 +82,7 @@ import bunnySpecialLotteryAbi from 'config/abi/bunnySpecialLottery.json'
 import bunnySpecialXmasAbi from 'config/abi/bunnySpecialXmas.json'
 import farmAuctionAbi from 'config/abi/farmAuction.json'
 import anniversaryAchievementAbi from 'config/abi/anniversaryAchievement.json'
+import nftAbi from 'config/abi/nft.json'
 import nftMarketAbi from 'config/abi/nftMarket.json'
 import nftSaleAbi from 'config/abi/nftSale.json'
 import pancakeSquadAbi from 'config/abi/pancakeSquad.json'
@@ -147,6 +149,7 @@ import type {
   CrossFarmingSender,
   CrossFarmingReceiver,
   CrossFarmingProxy,
+  Nft,
 } from 'config/abi/types'
 import { ChainId } from '@pancakeswap/sdk'
 
@@ -329,6 +332,11 @@ export const getAnniversaryAchievementContract = (signer?: Signer | Provider) =>
 export const getNftMarketContract = (signer?: Signer | Provider) => {
   return getContract({ abi: nftMarketAbi, address: getNftMarketAddress(), signer }) as NftMarket
 }
+
+export const getNftContract = (signer?: Signer | Provider) => {
+  return getContract({ abi: nftAbi, address: getNftAddress(), signer }) as Nft
+}
+
 export const getNftSaleContract = (signer?: Signer | Provider) => {
   return getContract({ abi: nftSaleAbi, address: getNftSaleAddress(), signer }) as NftSale
 }

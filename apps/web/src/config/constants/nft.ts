@@ -37,8 +37,10 @@ export const COLLECTION_DATA = {
     updatedAt: '2023-05-04T05:36:45.000Z',
     avatar: 'https://static-nft.pancakeswap.com/mainnet/0x6f1Dc8a50489C96B6c09bb2aEc28c4043fB1A802/avatar.png',
     banner: {
-        large: 'https://static-nft.pancakeswap.com/mainnet/0x6f1Dc8a50489C96B6c09bb2aEc28c4043fB1A802/banner-lg.png',
+        large: '/images/nfts/banner.png',
+        // large: 'https://static-nft.pancakeswap.com/mainnet/0x6f1Dc8a50489C96B6c09bb2aEc28c4043fB1A802/banner-lg.png',
         small: 'https://static-nft.pancakeswap.com/mainnet/0x6f1Dc8a50489C96B6c09bb2aEc28c4043fB1A802/banner-sm.png'
+        // small: 'https://static-nft.pancakeswap.com/mainnet/0x6f1Dc8a50489C96B6c09bb2aEc28c4043fB1A802/banner-sm.png'
     },
     attributes: [
         {"traitType":"Background","value":"B1", "displayType": null},

@@ -1,7 +1,8 @@
 import { ChainId } from '@pancakeswap/sdk'
 import FarmsBscPriceHelper from './56'
 import FarmsBscTestnetPriceHelper from './97'
-import FarmsEthereumPriceHelper from './1'
+// import FarmsEthereumPriceHelper from './1'
+import FarmsEthereumPriceHelper from './42161'
 import FarmsGoerliPriceHelper from './5'
 
 export const getFarmsPriceHelperLpFiles = (chainId: ChainId) => {

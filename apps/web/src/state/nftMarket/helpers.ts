@@ -7,7 +7,7 @@ import erc721Abi from 'config/abi/erc721.json'
 import range from 'lodash/range'
 import groupBy from 'lodash/groupBy'
 import { BigNumber } from '@ethersproject/bignumber'
-import { getNftMarketContract } from 'utils/contractHelpers'
+import { getNftContract, getNftMarketContract } from 'utils/contractHelpers'
 import { NOT_ON_SALE_SELLER } from 'config/constants'
 import DELIST_COLLECTIONS from 'config/constants/nftsCollections/delist'
 import { pancakeBunniesAddress } from 'views/Nft/market/constants'
@@ -31,6 +31,7 @@ import {
   NftToken,
   TokenIdWithCollectionAddress,
   TokenMarketData,
+  TokenData,
   Transaction,
   AskOrder,
   ApiSingleTokenData,
@@ -407,7 +408,7 @@ export const getMarketDataForTokenIds = async (
 export const getNftsOnChainMarketData = async (
   collectionAddress: string,
   tokenIds: string[],
-): Promise<TokenMarketData[]> => {
+) => {
   try {
     const nftMarketContract = getNftMarketContract()
     const response = await nftMarketContract.viewAsksByCollectionAndTokenIds(collectionAddress.toLowerCase(), tokenIds)
@@ -438,34 +439,28 @@ export const getNftsOnChainMarketData = async (
 }
 
 export const getNftsOnChainData = async (
-  collectionAddress: string,
-  tokenIds: string[],
-): Promise<TokenMarketData[]> => {
+  tokenId: string,
+  address?: string,
+) => {
   try {
-    const nftMarketContract = getNftMarketContract()
-    const response = await nftMarketContract.viewAsksByCollectionAndTokenIds(collectionAddress.toLowerCase(), tokenIds)
-    const askInfo = response?.askInfo
+    const nftContract = getNftContract()
+    console.log(nftContract)
+    const nftData = await nftContract.getNFTsByIds([tokenId])
+    const users = await nftContract.getUsersOf(tokenId)
 
-    if (!askInfo) return []
+    let userData: any;
 
-    return askInfo
-      .map((tokenAskInfo, index) => {
-        if (!tokenAskInfo.seller || !tokenAskInfo.price) return null
-        const currentSeller = tokenAskInfo.seller
-        const isTradable = currentSeller.toLowerCase() !== NOT_ON_SALE_SELLER
-        const currentAskPrice = tokenAskInfo.price && formatBigNumber(tokenAskInfo.price)
+    if (address) {
+      userData = await nftContract.userInfo(tokenId, address)
+    }
 
-        return {
-          collection: { id: collectionAddress.toLowerCase() },
-          tokenId: tokenIds[index],
-          currentSeller,
-          isTradable,
-          currentAskPrice,
-        }
-      })
-      .filter(Boolean)
+    return {
+      nftData,
+      userData,
+      users
+    }
   } catch (error) {
-    console.error('Failed to fetch NFTs onchain market data', error)
+    console.error('Failed to fetch NFTs onchain data', error)
     return []
   }
 }

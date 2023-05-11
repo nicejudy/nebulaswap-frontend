@@ -2,7 +2,7 @@ import { useAccount } from 'wagmi'
 import { FetchStatus } from 'config/constants/types'
 import { useCallback } from 'react'
 import { useErc721CollectionContract } from 'hooks/useContract'
-import { getNftApi, getNftsMarketData, getNftsOnChainMarketData } from 'state/nftMarket/helpers'
+import { getNftApi, getNftsMarketData, getNftsOnChainData, getNftsOnChainMarketData } from 'state/nftMarket/helpers'
 import { NftLocation, NftToken, TokenMarketData } from 'state/nftMarket/types'
 import { useProfile } from 'state/profile/hooks'
 import useSWR from 'swr'
@@ -51,6 +51,7 @@ const useNftOwn = (collectionAddress: string, tokenId: string, marketData?: Toke
 }
 
 export const useCompleteNft = (collectionAddress: string, tokenId: string) => {
+  const { address: account } = useAccount()
   const { data: nft, mutate } = useSWR(
     collectionAddress && tokenId ? ['nft', collectionAddress, tokenId] : null,
     async () => {
@@ -74,9 +75,10 @@ export const useCompleteNft = (collectionAddress: string, tokenId: string) => {
   const { data: marketData, mutate: refetchNftMarketData } = useSWR(
     collectionAddress && tokenId ? ['nft', 'marketData', collectionAddress, tokenId] : null,
     async () => {
-      const [onChainMarketDatas, marketDatas] = await Promise.all([
+      const [onChainMarketDatas, marketDatas, onChainDatas] = await Promise.all([
         getNftsOnChainMarketData(collectionAddress.toLowerCase(), [tokenId]),
         getNftsMarketData({ collection: collectionAddress.toLowerCase(), tokenId }, 1),
+        account? getNftsOnChainData(tokenId, account) : getNftsOnChainData(tokenId)
       ])
       const onChainMarketData = onChainMarketDatas[0]
 
@@ -84,7 +86,7 @@ export const useCompleteNft = (collectionAddress: string, tokenId: string) => {
 
       if (!onChainMarketData) return marketDatas[0]
 
-      return { ...marketDatas[0], ...onChainMarketData }
+      return { ...marketDatas[0], ...onChainMarketData, ...onChainDatas }
     },
   )
 

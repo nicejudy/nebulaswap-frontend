@@ -47,6 +47,8 @@ export enum NftLocation {
 
 // Market data regarding specific token ID, acquired via subgraph
 export interface TokenMarketData {
+  userData?: any
+  nftData?: any
   tokenId: string
   collection: {
     id: string
@@ -61,6 +63,18 @@ export interface TokenMarketData {
   otherId?: string
   updatedAt?: string
   transactionHistory?: Transaction[]
+}
+
+export interface TokenData {
+  tokenId: string
+  owner: string
+  lastProcessingTimestamp: number
+  amount: number
+  supportValue: number
+  supporters: string[]
+  rewardPerDay: number
+  totalClaimed: number
+  exists: boolean
 }
 
 // Represents single NFT token, either Squad-like NFT or single PancakeBunny.
