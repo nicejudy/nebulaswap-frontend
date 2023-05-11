@@ -188,28 +188,6 @@ const config: (
     //   ],
     // },
     {
-      label: t('NFT'),
-      href: `${nftsBaseUrl}`,
-      icon: NftIcon,
-      fillIcon: NftFillIcon,
-      supportChainIds: SUPPORT_ONLY_BSC,
-      image: '/images/decorations/nft.png',
-      items: [
-        // {
-        //   label: t('Overview'),
-        //   href: `${nftsBaseUrl}`,
-        // },
-        // {
-        //   label: t('Collections'),
-        //   href: `${nftsBaseUrl}/collections`,
-        // },
-        // {
-        //   label: t('Activity'),
-        //   href: `${nftsBaseUrl}/activity`,
-        // },
-      ],
-    },
-    {
       label: 'Info',
       href: '/info',
       icon: MoreIcon,
@@ -261,7 +239,29 @@ const config: (
       icon: MoreIcon,
       hideSubNav: true,
       items: []
-    }
+    },
+    {
+      label: t('NFT'),
+      href: `${nftsBaseUrl}`,
+      icon: NftIcon,
+      fillIcon: NftFillIcon,
+      supportChainIds: SUPPORT_ONLY_BSC,
+      image: '/images/decorations/nft.png',
+      items: [
+        // {
+        //   label: t('Overview'),
+        //   href: `${nftsBaseUrl}`,
+        // },
+        // {
+        //   label: t('Collections'),
+        //   href: `${nftsBaseUrl}/collections`,
+        // },
+        // {
+        //   label: t('Activity'),
+        //   href: `${nftsBaseUrl}/activity`,
+        // },
+      ],
+    },
   ].map((item) => addMenuItemSupported(item, chainId))
 
 export default config

@@ -8,11 +8,11 @@ const StyledComing = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 64px);
+  // height: calc(100vh - 64px);
   justify-content: center;
 `;
 
-const Coming = ({ text = "Coming Soon", mt = 0 }: { text?: string, mt?: number }) => {
+const Coming1 = ({ text = "Coming Soon", mt = 0 }: { text?: string, mt?: number }) => {
   const { t } = useTranslation();
 
   return (
@@ -33,4 +33,4 @@ const Coming = ({ text = "Coming Soon", mt = 0 }: { text?: string, mt?: number }
   );
 };
 
-export default Coming;
+export default Coming1;

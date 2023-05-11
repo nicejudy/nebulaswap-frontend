@@ -1,7 +1,7 @@
 // // import NftMarket from 'views/Nft/market/Home'
 
 // // const NftMarketPage = () => {
-// //   return <NftMarket />
+// //   return <NftMarket />             
 // // }
 
 // // export default NftMarketPage
@@ -68,15 +68,18 @@
 
 // export default CollectionPage
 
-import { Coming } from '@pancakeswap/uikit'
+import { Coming1 } from '@pancakeswap/uikit'
+import { Flex, Box, FlexProps } from '@pancakeswap/uikit'
 import { COLLECTION_DATA } from 'config/constants/nft'
+
 import BannerHeader from 'views/Nft/market/components/BannerHeader'
 import AvatarImage from 'views/Nft/market/components/BannerHeader/AvatarImage'
+import StyledBannerImageWrapper from 'views/Nft/market/components/BannerHeader/BannerImage'
 
 const CollectionPage = () => 
 (<>
-  <Coming />
-  <BannerHeader bannerImage={COLLECTION_DATA.banner.large} avatar={<></>} />
+  <BannerHeader bannerImage={COLLECTION_DATA.banner.large} avatar={<></>} /> 
+  <Coming1 />
 </>)
 
 export default CollectionPage
