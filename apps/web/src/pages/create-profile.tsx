@@ -1,3 +1,12 @@
-import ProfileCreation from '../views/ProfileCreation'
+// import ProfileCreation from '../views/ProfileCreation'
 
-export default ProfileCreation
+// export default ProfileCreation
+
+
+import { NotFound } from '@pancakeswap/uikit'
+
+const NotFoundPage = () => <NotFound />
+
+NotFoundPage.chains = []
+
+export default NotFoundPage

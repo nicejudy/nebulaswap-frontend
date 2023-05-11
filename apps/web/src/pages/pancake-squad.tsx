@@ -1,3 +1,12 @@
-import PancakeSquad from '../views/PancakeSquad'
+// import PancakeSquad from '../views/PancakeSquad'
 
-export default PancakeSquad
+// export default PancakeSquad
+
+
+import { NotFound } from '@pancakeswap/uikit'
+
+const NotFoundPage = () => <NotFound />
+
+NotFoundPage.chains = []
+
+export default NotFoundPage
