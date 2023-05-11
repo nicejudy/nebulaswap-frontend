@@ -129,12 +129,12 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowNativeBalance, onDismiss 
             </Text>
           </Flex> */}
           <CopyAddress tooltipMessage={t('Copied')} account={account} />
-          <LinkExternal isBscScan href={getBlockExploreLink(account, 'address', ChainId.BSC)} mr="12px">
+          <LinkExternal isBscScan href={getBlockExploreLink(account, 'address', ChainId.ETHEREUM)} mr="12px">
             {/* {getBlockExploreName(ChainId.BSC)} */}
             View on explorer
           </LinkExternal>
         </Flex>
-        <Flex justifyContent="space-between" alignItems="center" mb="8px">
+        {/* <Flex justifyContent="space-between" alignItems="center" mb="8px">
           <NextLink href={`/profile/${account?.toLowerCase()}`} passHref onClick={onDismiss}>
             <Text color="primary" fontSize="12px" fontWeight="bold" ml="12px">
               {t('Your NFTs')}
@@ -150,9 +150,9 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowNativeBalance, onDismiss 
               {t('View Profile')}
             </Text>
           </NextLink>}
-        </Flex>
-        {/* <Flex alignItems="center" justifyContent="space-between">
-          <Text color="textSubtle">BNB {t('Balance')}</Text>
+        </Flex> */}
+        <Flex alignItems="center" justifyContent="space-between">
+          <Text color="primary">ETH {t('Balance')}</Text>
           {!bnbBalance.isFetched ? (
             <Skeleton height="22px" width="60px" />
           ) : (
@@ -161,7 +161,7 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowNativeBalance, onDismiss 
         </Flex>
         {wBNBBalance.gt(0) && (
           <Flex alignItems="center" justifyContent="space-between">
-            <Text color="textSubtle">WBNB {t('Balance')}</Text>
+            <Text color="primary">WETH {t('Balance')}</Text>
             {wBNBFetchStatus !== FetchStatus.Fetched ? (
               <Skeleton height="22px" width="60px" />
             ) : (
@@ -170,13 +170,13 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowNativeBalance, onDismiss 
           </Flex>
         )}
         <Flex alignItems="center" justifyContent="space-between">
-          <Text color="textSubtle">{t('CAKE Balance')}</Text>
+          <Text color="primary">{t('NEBULA Balance')}</Text>
           {cakeFetchStatus !== FetchStatus.Fetched ? (
             <Skeleton height="22px" width="60px" />
           ) : (
             <Text>{formatBigNumber(cakeBalance, 3)}</Text>
           )}
-        </Flex> */}
+        </Flex>
       </Box>
       {/* <CakeBenefitsCard onDismiss={onDismiss} /> */}
       <Button variant="secondary" width="100%" minHeight={48} onClick={handleLogout} my="12px">

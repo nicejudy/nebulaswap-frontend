@@ -29,7 +29,7 @@ const IfoContainer: React.FC<React.PropsWithChildren<TypeProps>> = ({ ifoSection
       <IfoStepBackground>
         <Container>{ifoSteps}</Container>
       </IfoStepBackground>
-      <Container>
+      {/* <Container>
         <IfoQuestions />
         <LinkExternal
           href="https://docs.pancakeswap.finance/contact-us/business-partnerships#ifos-token-sales"
@@ -38,7 +38,7 @@ const IfoContainer: React.FC<React.PropsWithChildren<TypeProps>> = ({ ifoSection
         >
           {t('Apply to run an IFO!')}
         </LinkExternal>
-      </Container>
+      </Container> */}
     </IfoLayout>
   )
 }

@@ -172,7 +172,7 @@ const IfoSteps: React.FC<React.PropsWithChildren<TypeProps>> = ({
   const { address: account } = useAccount()
   const { t } = useTranslation()
   const { balance } = useTokenBalance(ifoCurrencyAddress)
-  const stepsValidationStatus = [hasActiveProfile, balance.isGreaterThan(0), isCommitted, hasClaimed]
+  const stepsValidationStatus = [hasActiveProfile, hasClaimed]
 
   const getStatusProp = (index: number): StepStatus => {
     const arePreviousValid = index === 0 ? true : every(stepsValidationStatus.slice(0, index), Boolean)
@@ -213,27 +213,27 @@ const IfoSteps: React.FC<React.PropsWithChildren<TypeProps>> = ({
         return (
           <CardBody>
             <Heading as="h4" color="secondary" mb="16px">
-              {t('Activate your Profile')}
+              {t('Take ETH or USDC')}
             </Heading>
             <Text color="textSubtle" small mb="16px">
-              {t('You’ll need an active PancakeSwap Profile to take part in an IFO!')}
+              {t('You’ll need ETH or USDC in your wallet to take part in the Presale!')}
             </Text>
-            {renderAccountStatus()}
+            {/* {renderAccountStatus()} */}
           </CardBody>
         )
+      // case 1:
+      //   return <Step1 hasProfile={hasActiveProfile} />
+      // case 2:
+      //   return <Step2 hasProfile={hasActiveProfile} isLive={isLive} isCommitted={isCommitted} />
       case 1:
-        return <Step1 hasProfile={hasActiveProfile} />
-      case 2:
-        return <Step2 hasProfile={hasActiveProfile} isLive={isLive} isCommitted={isCommitted} />
-      case 3:
         return (
           <CardBody>
             <Heading as="h4" color="secondary" mb="16px">
-              {t('Claim your tokens and achievement')}
+              {t('Claim NEBULA')}
             </Heading>
             <Text color="textSubtle" small>
               {t(
-                'After the IFO sales finish, you can claim any IFO tokens that you bought, and any unspent CAKE tokens will be returned to your wallet.',
+                'After the Presale finish, you can claim NEBULA that you bought.',
               )}
             </Text>
           </CardBody>
@@ -246,7 +246,7 @@ const IfoSteps: React.FC<React.PropsWithChildren<TypeProps>> = ({
   return (
     <Wrapper>
       <Heading id="ifo-how-to" as="h2" scale="xl" color="secondary" mb="24px" textAlign="center">
-        {t('How to Take Part in the Public Sale')}
+        {t('How to Take Part in the Presale')}
       </Heading>
       <Stepper>
         {stepsValidationStatus.map((_, index) => (

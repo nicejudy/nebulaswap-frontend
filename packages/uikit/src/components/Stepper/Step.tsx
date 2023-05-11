@@ -6,12 +6,14 @@ import { StatusProps, StepProps } from "./types";
 
 const getStepNumberFontColor = ({ theme, status }: StatusProps) => {
   if (status === "past") {
-    return theme.colors.success;
+    return theme.colors.textDisabled;
   }
   if (status === "current") {
-    return theme.colors.invertedContrast;
+    return theme.colors.textDisabled;
+    // return theme.colors.invertedContrast;
   }
   return theme.colors.textDisabled;
+  // return theme.colors.textDisabled;
 };
 
 const StyledStep = styled(Flex)`
@@ -31,7 +33,8 @@ const Connector = styled.div<StatusProps>`
   }}
   left: calc(50% - 2px);
   background-color: ${({ theme, status }) =>
-    theme.colors[status === "past" || status === "current" ? "success" : "textDisabled"]};
+    theme.colors[status === "past" || status === "current" ? "textDisabled" : "textDisabled"]};
+    // theme.colors[status === "past" || status === "current" ? "success" : "textDisabled"]};
 `;
 
 const ChildrenWrapper = styled(Box)<{ isVisible: boolean }>`
@@ -63,8 +66,10 @@ const Wrapper = styled.div`
 
 export const StepNumber = styled.div<StatusProps>`
   box-shadow: 0px 1px 4px rgba(25, 19, 38, 0.15);
-  background-color: ${({ theme, status }) => theme.colors[status === "current" ? "secondary" : "invertedContrast"]};
-  border: 2px solid ${({ theme, status }) => (status === "past" ? theme.colors.success : "transparent")};
+  background-color: ${({ theme, status }) => theme.colors[status === "current" ? "invertedContrast" : "invertedContrast"]};
+  // background-color: ${({ theme, status }) => theme.colors[status === "current" ? "secondary" : "invertedContrast"]};
+  border: 2px solid ${({ theme, status }) => (status === "past" ? "transparent" : "transparent")};
+  // border: 2px solid ${({ theme, status }) => (status === "past" ? theme.colors.success : "transparent")};
   border-radius: ${({ theme }) => theme.radii.circle};
   color: ${getStepNumberFontColor};
   display: flex;
