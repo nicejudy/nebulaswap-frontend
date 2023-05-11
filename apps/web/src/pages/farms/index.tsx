@@ -1,66 +1,68 @@
-import { useContext } from 'react'
-import { SUPPORT_FARMS } from 'config/constants/supportChains'
-import { FarmsPageLayout, FarmsContext } from 'views/Farms'
-import FarmCard from 'views/Farms/components/FarmCard/FarmCard'
-import { getDisplayApr } from 'views/Farms/components/getDisplayApr'
-import { usePriceCakeBusd } from 'state/farms/hooks'
-import { useAccount } from 'wagmi'
-import ProxyFarmContainer, {
-  YieldBoosterStateContext,
-} from 'views/Farms/components/YieldBooster/components/ProxyFarmContainer'
+// import { useContext } from 'react'
+// import { SUPPORT_FARMS } from 'config/constants/supportChains'
+// import { FarmsPageLayout, FarmsContext } from 'views/Farms'
+// import FarmCard from 'views/Farms/components/FarmCard/FarmCard'
+// import { getDisplayApr } from 'views/Farms/components/getDisplayApr'
+// import { usePriceCakeBusd } from 'state/farms/hooks'
+// import { useAccount } from 'wagmi'
+// import ProxyFarmContainer, {
+//   YieldBoosterStateContext,
+// } from 'views/Farms/components/YieldBooster/components/ProxyFarmContainer'
 
-import { Coming } from '@pancakeswap/uikit'
+import { Coming } from "@pancakeswap/uikit"
 
-const ProxyFarmCardContainer = ({ farm }) => {
-  const { address: account } = useAccount()
-  const cakePrice = usePriceCakeBusd()
+// import { Coming } from '@pancakeswap/uikit'
 
-  const { proxyFarm, shouldUseProxyFarm } = useContext(YieldBoosterStateContext)
-  const finalFarm = shouldUseProxyFarm ? proxyFarm : farm
+// const ProxyFarmCardContainer = ({ farm }) => {
+//   const { address: account } = useAccount()
+//   const cakePrice = usePriceCakeBusd()
 
-  return (
-    <FarmCard
-      key={finalFarm.pid}
-      farm={finalFarm}
-      displayApr={getDisplayApr(finalFarm.apr, finalFarm.lpRewardsApr)}
-      cakePrice={cakePrice}
-      account={account}
-      removed={false}
-    />
-  )
-}
+//   const { proxyFarm, shouldUseProxyFarm } = useContext(YieldBoosterStateContext)
+//   const finalFarm = shouldUseProxyFarm ? proxyFarm : farm
 
-const FarmsPage = () => {
-  const { address: account } = useAccount()
-  const { chosenFarmsMemoized } = useContext(FarmsContext)
-  const cakePrice = usePriceCakeBusd()
-  return (
-    <>
-      {chosenFarmsMemoized.map((farm) =>
-        farm.boosted ? (
-          <ProxyFarmContainer farm={farm} key={farm.pid}>
-            <ProxyFarmCardContainer farm={farm} />
-          </ProxyFarmContainer>
-        ) : (
-          <FarmCard
-            key={farm.pid}
-            farm={farm}
-            displayApr={getDisplayApr(farm.apr, farm.lpRewardsApr)}
-            cakePrice={cakePrice}
-            account={account}
-            removed={false}
-          />
-        ),
-      )}
-    </>
-  )
-}
+//   return (
+//     <FarmCard
+//       key={finalFarm.pid}
+//       farm={finalFarm}
+//       displayApr={getDisplayApr(finalFarm.apr, finalFarm.lpRewardsApr)}
+//       cakePrice={cakePrice}
+//       account={account}
+//       removed={false}
+//     />
+//   )
+// }
 
-FarmsPage.Layout = FarmsPageLayout
+// const FarmsPage = () => {
+//   const { address: account } = useAccount()
+//   const { chosenFarmsMemoized } = useContext(FarmsContext)
+//   const cakePrice = usePriceCakeBusd()
+//   return (
+//     <>
+//       {chosenFarmsMemoized.map((farm) =>
+//         farm.boosted ? (
+//           <ProxyFarmContainer farm={farm} key={farm.pid}>
+//             <ProxyFarmCardContainer farm={farm} />
+//           </ProxyFarmContainer>
+//         ) : (
+//           <FarmCard
+//             key={farm.pid}
+//             farm={farm}
+//             displayApr={getDisplayApr(farm.apr, farm.lpRewardsApr)}
+//             cakePrice={cakePrice}
+//             account={account}
+//             removed={false}
+//           />
+//         ),
+//       )}
+//     </>
+//   )
+// }
 
-FarmsPage.chains = SUPPORT_FARMS
+// FarmsPage.Layout = FarmsPageLayout
 
-// const FarmsPage = () => <Coming />
+// FarmsPage.chains = SUPPORT_FARMS
+
+const FarmsPage = () => <Coming />
 
 // FarmsPage.chains = []
 

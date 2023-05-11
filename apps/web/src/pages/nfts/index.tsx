@@ -69,12 +69,12 @@
 // export default CollectionPage
 
 import { Coming1 } from '@pancakeswap/uikit'
-import { Flex, Box, FlexProps } from '@pancakeswap/uikit'
+// import { Flex, Box, FlexProps } from '@pancakeswap/uikit'
 import { COLLECTION_DATA } from 'config/constants/nft'
 
 import BannerHeader from 'views/Nft/market/components/BannerHeader'
-import AvatarImage from 'views/Nft/market/components/BannerHeader/AvatarImage'
-import StyledBannerImageWrapper from 'views/Nft/market/components/BannerHeader/BannerImage'
+// import AvatarImage from 'views/Nft/market/components/BannerHeader/AvatarImage'
+// import StyledBannerImageWrapper from 'views/Nft/market/components/BannerHeader/BannerImage'
 
 const CollectionPage = () => 
 (<>
