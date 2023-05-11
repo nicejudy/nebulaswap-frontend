@@ -48,7 +48,7 @@ const Logo: React.FC<React.PropsWithChildren<Props>> = ({ href }) => {
     <>
       {/* <LogoIcon className="mobile-icon" />
       <LogoWithTextIcon className="desktop-icon" /> */}
-      <img src="/images/logo.png" width="84px" />
+      <img src="/images/logo.png" width="42px" />
     </>
   );
 
