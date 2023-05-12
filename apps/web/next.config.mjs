@@ -167,16 +167,17 @@ const config = {
       },
     ]
   },
-  webpack: (webpackConfig, { webpack }) => {
-    // tree shake sentry tracing
-    webpackConfig.plugins.push(
-      new webpack.DefinePlugin({
-        __SENTRY_DEBUG__: false,
-        __SENTRY_TRACING__: false,
-      }),
-    )
-    return webpackConfig
-  },
+  // webpack: (webpackConfig, { webpack }) => {
+  //   // tree shake sentry tracing
+  //   webpackConfig.plugins.push(
+  //     new webpack.DefinePlugin({
+  //       __SENTRY_DEBUG__: false,
+  //       __SENTRY_TRACING__: false,
+  //     }),
+  //   )
+  //   return webpackConfig
+  // },
 }
 
-export default withBundleAnalyzer(withVanillaExtract(withSentryConfig(withAxiom(config), sentryWebpackPluginOptions)))
+// export default withBundleAnalyzer(withVanillaExtract(withSentryConfig(withAxiom(config), sentryWebpackPluginOptions)))
+export default withBundleAnalyzer(withVanillaExtract(config))
