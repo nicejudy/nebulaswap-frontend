@@ -3,7 +3,7 @@ import Image from 'next/legacy/image'
 import styled, { keyframes } from 'styled-components'
 import CompositeImage, { CompositeImageProps } from '../CompositeImage'
 import ColoredWordHeading from '../ColoredWordHeading'
-import bunnyImage from '../../../../public/images/home/trade/trading.png'
+import bunnyImage from '../../../../../public/images/home/trade/trading.png'
 
 interface SalesSectionButton {
   to: string
