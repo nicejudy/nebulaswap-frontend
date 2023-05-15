@@ -1,5 +1,7 @@
+import { baseColors } from "@pancakeswap/ui/tokens/colors";
 import React, { useContext } from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, ThemeConsumer } from "styled-components";
+import { colorStyle, fontFamily } from "styled-system";
 import Flex from "../../../components/Box/Flex";
 import { LogoIcon, LogoWithTextIcon } from "../../../components/Svg";
 import { MenuContext } from "../context";
@@ -11,6 +13,14 @@ interface Props {
 const blink = keyframes`
   0%,  100% { transform: scaleY(1); }
   50% { transform:  scaleY(0.1); }
+`;
+
+const LogoText = styled("div")`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3px;
+  margin-left: 10px;
 `;
 
 const StyledLink = styled("a")`
@@ -49,6 +59,9 @@ const Logo: React.FC<React.PropsWithChildren<Props>> = ({ href }) => {
       {/* <LogoIcon className="mobile-icon" />
       <LogoWithTextIcon className="desktop-icon" /> */}
       <img src="/images/logo.png" width="42px" />
+      <LogoText>
+        <span style={{ color: baseColors.primary, fontFamily: "Relative, sans-serif", fontSize: "24px", fontWeight: "600" }}> NebulaSwap </span>
+      </LogoText>
     </>
   );
 
