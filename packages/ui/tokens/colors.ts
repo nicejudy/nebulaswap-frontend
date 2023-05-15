@@ -2,7 +2,7 @@ export const baseColors = {
   white: 'white',
   failure: '#ed4aed',
   failure33: '#ed4aed33',
-  primary: '#4353ff',
+  primary: '#d30353',
   primary0f: '#4353ff0f',
   primary3D: '#4353ff3D',
   primaryBright: '#2338ff',

@@ -6,7 +6,7 @@ import Image from 'next/legacy/image'
 import { ChainId } from '@pancakeswap/sdk'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import styled, { keyframes } from 'styled-components'
-import bunnyImage from '../../../../public/images/home/lunar-bunny/astronaut-bunny.png'
+import bunnyImage from '../../../../public/images/home/lunar-bunny/astronaut-moon.png'
 import CompositeImage, { CompositeImageProps } from './CompositeImage'
 import { SlideSvgDark, SlideSvgLight } from './SlideSvg'
 
