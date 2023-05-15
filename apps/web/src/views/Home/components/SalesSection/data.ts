@@ -2,8 +2,8 @@ import { TranslateFunction } from '@pancakeswap/localization'
 import { SalesSectionProps } from '.'
 
 export const swapSectionData = (t: TranslateFunction): SalesSectionProps => ({
-  headingText: t('Trade anything. No registration, no hassle.'),
-  bodyText: t('Trade any token on BNB Smart Chain in seconds, just by connecting your wallet.'),
+  headingText: t('Exchange anything, no signup, no fuss.'),
+  bodyText: t('Swap any token on the Arbitrum BlockChain instantly, simply by linking your wallet.'),
   reverse: false,
   primaryButton: {
     to: '/swap',

@@ -1,6 +1,9 @@
 import { Flex, Text, Button, Link, NextLinkFromReactRouter as RouterLink, OpenNewIcon } from '@pancakeswap/uikit'
+import Image from 'next/legacy/image'
+import styled, { keyframes } from 'styled-components'
 import CompositeImage, { CompositeImageProps } from '../CompositeImage'
 import ColoredWordHeading from '../ColoredWordHeading'
+import bunnyImage from '../../../../public/images/home/trade/trading.png'
 
 interface SalesSectionButton {
   to: string
@@ -16,6 +19,27 @@ export interface SalesSectionProps {
   secondaryButton: SalesSectionButton
   images: CompositeImageProps
 }
+
+const flyingAnim = () => keyframes`
+  from {
+    transform: translate(0,  0px);
+  }
+  50% {
+    transform: translate(-5px, -5px);
+  }
+  to {
+    transform: translate(0, 0px);
+  }
+`
+
+const BunnyWrapper = styled.div`
+  width: 100%;
+  animation: ${flyingAnim} 3.5s ease-in-out infinite;
+  will-change: transform;
+  > span {
+    overflow: visible !important; // make sure the next-image pre-build blur image not be cropped
+  }
+`
 
 const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (props) => {
   const { headingText, bodyText, reverse, primaryButton, secondaryButton, images } = props
@@ -70,7 +94,10 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
           flex={[null, null, null, '1']}
           mb={['24px', null, null, '0']}
         >
-          <CompositeImage {...images} />
+          {/* <CompositeImage {...images} /> */}
+          <BunnyWrapper>
+            <Image src={bunnyImage} priority placeholder="blur" alt="image" />
+          </BunnyWrapper>
         </Flex>
       </Flex>
     </Flex>
