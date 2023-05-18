@@ -103,7 +103,7 @@ const SwapLineChart = ({
           labelVisible: false,
           style: 3,
           width: 1,
-          color: isDark ? '#D2ADB8' : '#AA6E7A',
+          color: isDark ? '#d2add2' : '#aa6eaa',
         },
       },
     })

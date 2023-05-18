@@ -31,7 +31,7 @@ const Wallet = () => {
   const accountEllipsis = account ? `${account.substring(0, 2)}...${account.substring(account.length - 2)}` : null
   return (
     <StyledWallet isActive={isActive} onClick={handleWalletClick}>
-      <WalletIcon color={isActive ? '#AA6E7A' : '#A59A92'} />
+      <WalletIcon color={isActive ? '#aa6eaa' : '#A59A92'} />
       <Text style={{ marginLeft: '4px' }} color="textSubtle">
         {accountEllipsis}
       </Text>

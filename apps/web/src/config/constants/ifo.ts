@@ -30,6 +30,31 @@ const ifos: Ifo[] = [
       'The Esports Players League (ESPL) Arena is a platform that hosts global Esports tournaments and coordinates different aspects such as setting of tournament parameters, score-keeping, prize pool payouts via crypto and more.',
     vestingTitle: 'Use $ARENA to enjoy premium features on ESPL’s Esports tournament platform',
   },
+  {
+    id: 'bs',
+    address: '0xD8b4eabE2f7E8F20dfFE81EF3De151F081472462',
+    isActive: true,
+    name: 'BankSwap Token ($BS)',
+    poolBasic: {
+      saleAmount: '2,000,000 $BS',
+      raiseAmount: '1,300,000 WCRO',
+      cakeToBurn: '$375,000',
+      distributionRatio: 0.3,
+    },
+    // poolUnlimited: {
+    //   saleAmount: '875,000 BS',
+    //   raiseAmount: '$2,500,000',
+    //   cakeToBurn: '$1,250,000',
+    //   distributionRatio: 0.7,
+    // },
+    currency: ethereumTokens.usdc,
+    token: ethereumTokens.nebula,
+    // releaseBlockNumber: 7707736,
+    campaignId: '511110000',
+    articleUrl: 'https://medium.com/@crobank/bankpad-ifo-1-bankswap-token-2a966c34aeda',
+    tokenOfferingPrice: 0.65,
+    version: 2,
+  },
 ]
 
 export default ifos

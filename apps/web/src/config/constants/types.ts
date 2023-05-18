@@ -56,7 +56,7 @@ export interface Ifo {
   cIFO?: boolean
   plannedStartTime?: number
   [PoolIds.poolBasic]?: IfoPoolInfo
-  [PoolIds.poolUnlimited]: IfoPoolInfo
+  [PoolIds.poolUnlimited]?: IfoPoolInfo
 }
 
 export enum PoolCategory {
