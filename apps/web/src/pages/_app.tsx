@@ -73,7 +73,7 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
         />
         <meta
           name="description"
-          content="Cheaper and faster than Uniswap? Discover PancakeSwap, the leading DEX on BNB Smart Chain (BSC) with the best farms in DeFi and a lottery for CAKE."
+          content="The most popular AMM on Arbitrum! Earn NEBULA through yield farming, then stake it in Pools to earn more tokens! We provide ASTRO NFTs."
         />
         <meta name="theme-color" content="#1FC7D4" />
         {(Component as NextPageWithLayout).mp && (
