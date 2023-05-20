@@ -6,7 +6,7 @@ import Image from 'next/legacy/image'
 import { ChainId } from '@pancakeswap/sdk'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import styled, { keyframes } from 'styled-components'
-import bunnyImage from '../../../../public/images/home/lunar-bunny/astronaut-moon.png'
+import bunnyImage from '../../../../public/images/home/lunar-bunny/moon.png'
 import CompositeImage, { CompositeImageProps } from './CompositeImage'
 import { SlideSvgDark, SlideSvgLight } from './SlideSvg'
 
@@ -112,12 +112,12 @@ const Hero = () => {
           }
         `}
       </style>
-      <BgWrapper>
+      {/* <BgWrapper>
         <InnerWrapper>
           <SlideSvgDark className="slide-svg-dark" width="100%" />
           <SlideSvgLight className="slide-svg-light" width="100%" />
         </InnerWrapper>
-      </BgWrapper>
+      </BgWrapper> */}
       <Flex
         position="relative"
         flexDirection={['column-reverse', null, null, 'row']}

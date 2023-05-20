@@ -23,11 +23,12 @@ export const swapSectionData = (t: TranslateFunction): SalesSectionProps => ({
       { src: 'CAKE', alt: t('CAKE token') },
     ],
   },
+  background: '/images/home/lunar-bunny/hero.png'
 })
 
 export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
   headingText: t('Earn passive income with crypto.'),
-  bodyText: t('PancakeSwap makes it easy to make your crypto work for you.'),
+  bodyText: t('NebulaSwap makes it easy to make your crypto work for you.'),
   reverse: true,
   primaryButton: {
     to: '/farms',
@@ -47,17 +48,18 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
       { src: 'folder', alt: t('Folder with cake token') },
     ],
   },
+  background: '/images/home/lunar-bunny/caca.png'
 })
 
 export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
-  headingText: t('CAKE makes our world go round.'),
+  headingText: t('Nebula makes our world go round.'),
   bodyText: t(
-    'CAKE token is at the heart of the PancakeSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it!',
+    'Nebula token is at the heart of the NebulaSwap ecosystem. Buy it, farm it, spend it, stake it... heck, you can even vote with it!',
   ),
   reverse: false,
   primaryButton: {
     to: '/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82&chainId=56',
-    text: t('Buy CAKE'),
+    text: t('Buy Nebula'),
     external: false,
   },
   secondaryButton: {
@@ -69,10 +71,11 @@ export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
   images: {
     path: '/images/home/cake/',
     attributes: [
-      { src: 'bottom-right', alt: t('Small 3d pancake') },
-      { src: 'top-right', alt: t('Small 3d pancake') },
-      { src: 'coin', alt: t('CAKE token') },
-      { src: 'top-left', alt: t('Small 3d pancake') },
+      { src: 'bottom-right', alt: t('Small 3d nebulaswap') },
+      { src: 'top-right', alt: t('Small 3d nebulaswap') },
+      { src: 'coin', alt: t('Nebula token') },
+      { src: 'top-left', alt: t('Small 3d nebulaswap') },
     ],
   },
+  background: '/images/home/trade/trading.png',
 })

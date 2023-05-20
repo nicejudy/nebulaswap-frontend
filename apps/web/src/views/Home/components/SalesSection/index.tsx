@@ -3,7 +3,7 @@ import Image from 'next/legacy/image'
 import styled, { keyframes } from 'styled-components'
 import CompositeImage, { CompositeImageProps } from '../CompositeImage'
 import ColoredWordHeading from '../ColoredWordHeading'
-import bunnyImage from '../../../../../public/images/home/trade/trading.png'
+// import bunnyImage from '../../../../../public/images/home/trade/trading.png'
 
 interface SalesSectionButton {
   to: string
@@ -18,6 +18,7 @@ export interface SalesSectionProps {
   primaryButton: SalesSectionButton
   secondaryButton: SalesSectionButton
   images: CompositeImageProps
+  background: string
 }
 
 const flyingAnim = () => keyframes`
@@ -42,7 +43,7 @@ const BunnyWrapper = styled.div`
 `
 
 const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (props) => {
-  const { headingText, bodyText, reverse, primaryButton, secondaryButton, images } = props
+  const { headingText, bodyText, reverse, primaryButton, secondaryButton, images, background } = props
 
   return (
     <Flex flexDirection="column">
@@ -96,7 +97,7 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
         >
           {/* <CompositeImage {...images} /> */}
           <BunnyWrapper>
-            <Image src={bunnyImage} priority placeholder="blur" alt="image" />
+            <img src={background} alt="image" />
           </BunnyWrapper>
         </Flex>
       </Flex>
