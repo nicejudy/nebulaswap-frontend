@@ -52,7 +52,7 @@ export const IfoPageLayout = ({ children }) => {
           </Button>
         </Link>
       </StyledComing>
-      {children}
+      {/* {children} */}
     </IfoProvider>
   )
 }
