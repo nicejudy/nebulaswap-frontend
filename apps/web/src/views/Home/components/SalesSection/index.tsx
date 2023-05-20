@@ -97,7 +97,7 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
         >
           {/* <CompositeImage {...images} /> */}
           <BunnyWrapper>
-          <Image src={background} priority placeholder="blur" alt={t('Lunar bunny')} />
+          <Image src={background} priority placeholder="blur" alt="Lunar bunny" />
           </BunnyWrapper>
         </Flex>
       </Flex>
