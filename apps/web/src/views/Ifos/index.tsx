@@ -43,7 +43,7 @@ export const IfoPageLayout = ({ children }) => {
       <StyledComing>
         {/* <LogoIcon width="64px" mb="8px" /> */}
         {/* <img src="/images/logo.png" width="96px" alt="description of image" /> */}
-        <Image src={bunnyImage} priority placeholder="blur" alt={t('Lunar bunny')} />
+        <Image src={bunnyImage} priority placeholder="blur" alt={'Lunar bunny'} />
         <Heading scale="xl" mb="8px">Coming Soon</Heading>
         {/* <Text mb="16px">{t("Oops, page not found.")}</Text> */}
         <Link href="/" passHref>
