@@ -6,6 +6,7 @@ import Container from 'components/Layout/Container'
 import { useAccount } from 'wagmi'
 import SunburstSvg from './SunburstSvg'
 import CompositeImage from './CompositeImage'
+import BunnyImg from '../../../../public/images/home/flying-pancakes/planet.png'
 
 const BgWrapper = styled.div`
   overflow: hidden;
@@ -87,18 +88,20 @@ const Footer = () => {
 
   return (
     <>
-      <BgWrapper>
+      {/* <BgWrapper>
         <Flex alignItems="center" justifyContent="center" width="100%" height="100%">
           <StyledSunburst />
         </Flex>
-      </BgWrapper>
+      </BgWrapper> */}
       {(isTablet || isDesktop) && (
         <FloatingPancakesWrapper>
           <TopLeftImgWrapper>
-            <CompositeImage {...topLeftImage} maxHeight="256px" />
+            {/* <CompositeImage {...topLeftImage} maxHeight="256px" /> */}
+            <img src="/images/home/flying-pancakes/planet.png" width="256px" />
           </TopLeftImgWrapper>
           <BottomRightImgWrapper>
-            <CompositeImage {...bottomRightImage} maxHeight="256px" />
+            {/* <CompositeImage {...bottomRightImage} maxHeight="256px" /> */}
+            <img src="/images/home/flying-pancakes/planet.png" width="256px" />
           </BottomRightImgWrapper>
         </FloatingPancakesWrapper>
       )}
