@@ -38,5 +38,3 @@ const CurrentIfo: React.FC<React.PropsWithChildren<TypeProps>> = ({ activeIfo })
     />
   )
 }
-
-export default CurrentIfo

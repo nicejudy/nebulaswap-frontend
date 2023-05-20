@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Flex, Heading, Text, Link, useMatchBreakpoints, OpenNewIcon } from '@pancakeswap/uikit'
 import { useTranslation } from '@pancakeswap/localization'
+import Image from 'next/legacy/image'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import Container from 'components/Layout/Container'
 import { useAccount } from 'wagmi'
@@ -97,11 +98,13 @@ const Footer = () => {
         <FloatingPancakesWrapper>
           <TopLeftImgWrapper>
             {/* <CompositeImage {...topLeftImage} maxHeight="256px" /> */}
-            <img src="/images/home/flying-pancakes/planet.png" width="256px" />
+            <Image src={BunnyImg} priority placeholder="blur" alt={t('Lunar bunny')} />
+            {/* <img src="/images/home/flying-pancakes/planet.png" width="256px" /> */}
           </TopLeftImgWrapper>
           <BottomRightImgWrapper>
             {/* <CompositeImage {...bottomRightImage} maxHeight="256px" /> */}
-            <img src="/images/home/flying-pancakes/planet.png" width="256px" />
+            <Image src={BunnyImg} priority placeholder="blur" alt={t('Lunar bunny')} />
+            {/* <img src="/images/home/flying-pancakes/planet.png" width="256px" /> */}
           </BottomRightImgWrapper>
         </FloatingPancakesWrapper>
       )}

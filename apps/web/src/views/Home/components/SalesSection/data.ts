@@ -1,6 +1,10 @@
 import { TranslateFunction } from '@pancakeswap/localization'
 import { SalesSectionProps } from '.'
 
+import HeroImg from '../../../../../public/images/home/lunar-bunny/hero.png'
+import CacaImg from '../../../../../public/images/home/lunar-bunny/caca.png'
+import TradeImg from '../../../../../public/images/home/trade/trading.png'
+
 export const swapSectionData = (t: TranslateFunction): SalesSectionProps => ({
   headingText: t('Exchange anything, no signup, no fuss.'),
   bodyText: t('Swap any token on the Arbitrum BlockChain instantly, simply by linking your wallet.'),
@@ -23,7 +27,7 @@ export const swapSectionData = (t: TranslateFunction): SalesSectionProps => ({
       { src: 'CAKE', alt: t('CAKE token') },
     ],
   },
-  background: '/images/home/lunar-bunny/hero.png'
+  background: HeroImg
 })
 
 export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
@@ -48,7 +52,7 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
       { src: 'folder', alt: t('Folder with cake token') },
     ],
   },
-  background: '/images/home/lunar-bunny/caca.png'
+  background: CacaImg
 })
 
 export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
@@ -77,5 +81,5 @@ export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
       { src: 'top-left', alt: t('Small 3d nebulaswap') },
     ],
   },
-  background: '/images/home/trade/trading.png',
+  background: TradeImg,
 })

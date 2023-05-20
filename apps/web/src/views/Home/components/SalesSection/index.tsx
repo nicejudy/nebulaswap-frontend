@@ -1,5 +1,5 @@
 import { Flex, Text, Button, Link, NextLinkFromReactRouter as RouterLink, OpenNewIcon } from '@pancakeswap/uikit'
-import Image from 'next/legacy/image'
+import Image, { StaticImageData } from 'next/legacy/image'
 import styled, { keyframes } from 'styled-components'
 import CompositeImage, { CompositeImageProps } from '../CompositeImage'
 import ColoredWordHeading from '../ColoredWordHeading'
@@ -18,7 +18,7 @@ export interface SalesSectionProps {
   primaryButton: SalesSectionButton
   secondaryButton: SalesSectionButton
   images: CompositeImageProps
-  background: string
+  background: StaticImageData
 }
 
 const flyingAnim = () => keyframes`
@@ -97,7 +97,7 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
         >
           {/* <CompositeImage {...images} /> */}
           <BunnyWrapper>
-            <img src={background} alt="image" />
+          <Image src={background} priority placeholder="blur" alt={t('Lunar bunny')} />
           </BunnyWrapper>
         </Flex>
       </Flex>
