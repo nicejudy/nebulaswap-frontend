@@ -127,7 +127,7 @@ const Hero = () => {
         id="homepage-hero"
       >
         <Flex flex="1" flexDirection="column">
-          <Heading scale="xxl" color="secondary" mb="24px">
+          <Heading scale="xxl" color="primary" mb="24px">
             {t('NEBULASWAP')}
           </Heading>
           <Heading scale="md" mb="24px">
@@ -136,7 +136,7 @@ const Hero = () => {
           <Flex>
             {!account && <ConnectWalletButton mr="8px" />}
             <NextLinkFromReactRouter to="/ifo">
-              <Button variant={!account ? 'secondary' : 'primary'}>{t('Join Presale')}</Button>
+              <Button variant={!account ? 'spec' : 'primary'}>{t('Join Presale')}</Button>
             </NextLinkFromReactRouter>
           </Flex>
         </Flex>

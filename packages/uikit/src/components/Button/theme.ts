@@ -64,4 +64,14 @@ export const styleVariants = {
     color: "textSubtle",
     boxShadow: "none",
   },
+  [variants.SPEC]: {
+    backgroundColor: "transparent",
+    border: "2px solid",
+    borderColor: "spec",
+    boxShadow: "none",
+    color: "spec",
+    ":disabled": {
+      backgroundColor: "transparent",
+    },
+  },
 };

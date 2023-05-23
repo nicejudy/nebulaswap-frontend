@@ -80,9 +80,9 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
               )}
             </Button>
             {secondaryButton.external ? (
-              <Link external href={secondaryButton.to}>
+              <Link external href={secondaryButton.to} color="spec">
                 {secondaryButton.text}
-                <OpenNewIcon color="primary" ml="4px" />
+                <OpenNewIcon color="spec" ml="4px" />
               </Link>
             ) : (
               <RouterLink to={secondaryButton.to}>{secondaryButton.text}</RouterLink>

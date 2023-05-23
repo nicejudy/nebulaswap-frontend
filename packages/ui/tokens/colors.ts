@@ -12,6 +12,7 @@ export const baseColors = {
   warning: '#ffcd38',
   warning2D: '#ed4a9c2D',
   warning33: '#ed4a9c33',
+  spec: '#6141fb',
 }
 
 export const additionalColors = {
