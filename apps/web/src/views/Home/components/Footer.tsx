@@ -56,7 +56,7 @@ const FloatingPancakesWrapper = styled(Container)`
 const TopLeftImgWrapper = styled(Flex)`
   position: absolute;
   left: 0;
-  top: 10%;
+  top: 15%;
 `
 const TopLeftImgWrapper1 = styled(Flex)`
   position: absolute;
@@ -67,7 +67,7 @@ const TopLeftImgWrapper1 = styled(Flex)`
 const BottomRightImgWrapper = styled(Flex)`
   position: absolute;
   right: 0;
-  top: 10%;
+  top: 15%;
 `
 
 const BottomRightImgWrapper1 = styled(Flex)`
@@ -115,7 +115,7 @@ const Footer = () => {
           </TopLeftImgWrapper>
           <TopLeftImgWrapper1>
             {/* <CompositeImage {...topLeftImage} maxHeight="256px" /> */}
-            <Image src={BunnyImg1} width={200} height={120} priority placeholder="blur" alt={t('Lunar bunny')} />
+            <Image src={BunnyImg1} width={200} height={115} priority placeholder="blur" alt={t('Lunar bunny')} />
             {/* <img src="/images/home/flying-pancakes/planet.png" width="256px" /> */}
           </TopLeftImgWrapper1>
           <BottomRightImgWrapper>
@@ -125,7 +125,7 @@ const Footer = () => {
           </BottomRightImgWrapper>
           <BottomRightImgWrapper1>
             {/* <CompositeImage {...bottomRightImage} maxHeight="256px" /> */}
-            <Image src={BunnyImg} width={200} height={120} priority placeholder="blur" alt={t('Lunar bunny')} />
+            <Image src={BunnyImg} width={200} height={115} priority placeholder="blur" alt={t('Lunar bunny')} />
             {/* <img src="/images/home/flying-pancakes/planet.png" width="256px" /> */}
           </BottomRightImgWrapper1>
         </FloatingPancakesWrapper>
