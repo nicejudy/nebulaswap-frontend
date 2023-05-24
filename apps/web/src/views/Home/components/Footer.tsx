@@ -56,7 +56,7 @@ const FloatingPancakesWrapper = styled(Container)`
 const TopLeftImgWrapper = styled(Flex)`
   position: absolute;
   left: 0;
-  top: 0;
+  top: 10%;
 `
 const TopLeftImgWrapper1 = styled(Flex)`
   position: absolute;
@@ -67,7 +67,7 @@ const TopLeftImgWrapper1 = styled(Flex)`
 const BottomRightImgWrapper = styled(Flex)`
   position: absolute;
   right: 0;
-  top: 0;
+  top: 10%;
 `
 
 const BottomRightImgWrapper1 = styled(Flex)`
@@ -131,7 +131,7 @@ const Footer = () => {
         </FloatingPancakesWrapper>
       )}
       <Wrapper>
-        {/* <Heading mb="24px" scale="xl" color="spec">
+        <Heading mb="24px" scale="xl" color="spec">
           {t('Start in seconds.')}
         </Heading>
         <Text textAlign="center" color="primary">
@@ -139,7 +139,7 @@ const Footer = () => {
         </Text>
         <Text mb="24px" bold color="primary">
           {t('No registration needed.')}
-        </Text> */}
+        </Text>
 
         {/* <Link external href="https://docs.pancakeswap.finance/">
           {t('Learn how to start')}
