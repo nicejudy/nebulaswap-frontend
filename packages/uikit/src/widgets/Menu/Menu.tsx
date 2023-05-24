@@ -51,9 +51,9 @@ const FixedContainer = styled.div<{ showMenu: boolean; height: number }>`
 `;
 
 const TopBannerContainer = styled.div<{ height: number }>`
-  height: ${({ height }) => `${height}px`};
-  min-height: ${({ height }) => `${height}px`};
-  max-height: ${({ height }) => `${height}px`};
+  height: ${({ height }) => `${60}px`};
+  min-height: ${({ height }) => `${60}px`};
+  max-height: ${({ height }) => `${60}px`};
   width: 100%;
 `;
 
@@ -145,7 +145,7 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
       >
         <Wrapper>
           <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
-            {/* {banner && isMounted && <TopBannerContainer height={topBannerHeight}>{banner}</TopBannerContainer>} */}
+            {banner && isMounted && <TopBannerContainer height={topBannerHeight}>{banner}</TopBannerContainer>}
             <StyledNav>
               <Flex>
                 <Logo href={homeLink?.href ?? "/"} />

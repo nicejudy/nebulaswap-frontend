@@ -10,10 +10,10 @@ const Container = styled(Flex)`
   padding: 12px;
   align-items: center;
   background: linear-gradient(0deg, rgba(39, 38, 44, 0.4), rgba(39, 38, 44, 0.4)),
-    linear-gradient(180deg, #8051d6 0%, #492286 100%);
+    linear-gradient(180deg, #872254 0%, #872254 100%);
   ${({ theme }) => theme.mediaQueries.md} {
     padding: 0px;
-    background: linear-gradient(180deg, #8051d6 0%, #492286 100%);
+    background: linear-gradient(180deg, #872254 0%, #872254 100%);
   }
 `
 
@@ -25,7 +25,7 @@ const InnerContainer = styled(Flex)`
 `
 
 const SpeechBubble = styled.div`
-  background: rgba(39, 38, 44, 0.4);
+  // background: rgba(39, 38, 44, 0.4);
   border-radius: 8px;
   padding: 8px;
   width: 60%;
@@ -33,6 +33,7 @@ const SpeechBubble = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
 
   & ${Text} {
     flex-shrink: 0;
@@ -40,7 +41,7 @@ const SpeechBubble = styled.div`
   }
 `
 
-const domain = 'https://pancakeswap.finance'
+const domain = 'https://nebulaswap.xyz'
 
 const PhishingWarningBanner: React.FC<React.PropsWithChildren> = () => {
   const { t } = useTranslation()
@@ -48,12 +49,12 @@ const PhishingWarningBanner: React.FC<React.PropsWithChildren> = () => {
   const { isMobile, isMd } = useMatchBreakpoints()
   const warningTextAsParts = useMemo(() => {
     const warningText = t("please make sure you're visiting %domain% - check the URL carefully.", { domain })
-    return warningText.split(/(https:\/\/pancakeswap.finance)/g)
+    return warningText.split(/(https:\/\/nebulaswap.xyz)/g)
   }, [t])
   const warningTextComponent = (
     <>
-      <Text as="span" color="warning" small bold textTransform="uppercase">
-        {t('Phishing warning: ')}
+      <Text as="span" color="white" small bold textTransform="uppercase">
+        {t('Phishing warning : ')}
       </Text>
       {warningTextAsParts.map((text, i) => (
         <Text
@@ -81,7 +82,7 @@ const PhishingWarningBanner: React.FC<React.PropsWithChildren> = () => {
       ) : (
         <>
           <InnerContainer>
-            <img
+            {/* <img
               src="/images/decorations/phishing-warning-bunny.webp"
               alt="phishing-warning"
               width="92px"
@@ -92,7 +93,7 @@ const PhishingWarningBanner: React.FC<React.PropsWithChildren> = () => {
                   e.currentTarget.src = fallbackSrc
                 }
               }}
-            />
+            /> */}
             <SpeechBubble>{warningTextComponent}</SpeechBubble>
           </InnerContainer>
           <IconButton onClick={hideBanner} variant="text">
