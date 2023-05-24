@@ -24,7 +24,7 @@ const ThemeSwitcher: React.FC<React.PropsWithChildren<Props>> = ({ isDark, toggl
   //   endIcon={(isActive = false) => <MoonIcon color={isActive ? "secondary" : "backgroundAlt"} />}
   // />
   <StyledFlex alignItems="center" m="4px" justifyContent="center" justifyItems="center" >
-    {isDark? <SunIcon color="warning" width="24px" onClick={() => toggleTheme(isDark)} /> : <MoonIcon color="primaryDark" width="24px" onClick={() => toggleTheme(!isDark)} />}
+    {isDark? <SunIcon color="spec" width="24px" onClick={() => toggleTheme(isDark)} /> : <MoonIcon color="spec" width="24px" onClick={() => toggleTheme(!isDark)} />}
   </StyledFlex>
 );
 

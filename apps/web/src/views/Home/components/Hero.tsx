@@ -127,7 +127,7 @@ const Hero = () => {
         id="homepage-hero"
       >
         <Flex flex="1" flexDirection="column">
-          <Heading scale="xxl" color="primary" mb="24px">
+          <Heading scale="xxl" color="spec" mb="24px">
             {t('NEBULASWAP')}
           </Heading>
           <Heading scale="md" mb="24px">

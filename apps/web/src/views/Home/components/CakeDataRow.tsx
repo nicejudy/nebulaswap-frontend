@@ -133,7 +133,7 @@ const CakeDataRow = () => {
       <Flex flexDirection="column" style={{ gridArea: 'a' }}>
         <Text color="textSubtle">{t('Circulating Supply')}</Text>
         {circulatingSupply ? (
-          <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={circulatingSupply} />
+          <Balance decimals={0} lineHeight="1.1" color="spec" fontSize="24px" bold value={circulatingSupply} />
         ) : (
           <Skeleton height={24} width={126} my="4px" />
         )}
@@ -141,7 +141,7 @@ const CakeDataRow = () => {
       <StyledColumn noMobileBorder style={{ gridArea: 'b' }}>
         <Text color="textSubtle">{t('Total supply')}</Text>
         {cakeSupply ? (
-          <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={cakeSupply} />
+          <Balance decimals={0} lineHeight="1.1" color="spec" fontSize="24px" bold value={cakeSupply} />
         ) : (
           <>
             <div ref={observerRef} />
@@ -152,12 +152,12 @@ const CakeDataRow = () => {
       <StyledColumn noMobileBorder style={{ gridArea: 'c' }}>
         <Text color="textSubtle">{t('Max Supply')}</Text>
 
-        <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={750000000} />
+        <Balance decimals={0} lineHeight="1.1" color="spec" fontSize="24px" bold value={750000000} />
       </StyledColumn>
       <StyledColumn noDesktopBorder style={{ gridArea: 'd' }}>
         <Text color="textSubtle">{t('Market cap')}</Text>
         {mcap?.gt(0) && mcapString ? (
-          <Heading scale="lg">{t('$%marketCap%', { marketCap: mcapString })}</Heading>
+          <Heading scale="lg" color="spec" >{t('$%marketCap%', { marketCap: mcapString })}</Heading>
         ) : (
           <Skeleton height={24} width={126} my="4px" />
         )}
@@ -165,7 +165,7 @@ const CakeDataRow = () => {
       <StyledColumn style={{ gridArea: 'e' }}>
         <Text color="textSubtle">{t('Burned to date')}</Text>
         {burnedBalance ? (
-          <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={burnedBalance} />
+          <Balance decimals={0} lineHeight="1.1" color="spec" fontSize="24px" bold value={burnedBalance} />
         ) : (
           <Skeleton height={24} width={126} my="4px" />
         )}
@@ -173,7 +173,7 @@ const CakeDataRow = () => {
       <StyledColumn style={{ gridArea: 'f' }}>
         <Text color="textSubtle">{t('Current emissions')}</Text>
 
-        <Heading scale="lg">{t('%cakeEmissions%/block', { cakeEmissions: emissionsPerBlock })}</Heading>
+        <Heading color="spec" scale="lg">{t('%cakeEmissions%/block', { cakeEmissions: emissionsPerBlock })}</Heading>
       </StyledColumn>
     </Grid>
   )

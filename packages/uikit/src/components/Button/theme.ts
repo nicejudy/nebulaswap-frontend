@@ -74,4 +74,8 @@ export const styleVariants = {
       backgroundColor: "transparent",
     },
   },
+  [variants.SPEC1]: {
+    backgroundColor: "spec",
+    color: "white",
+  },
 };

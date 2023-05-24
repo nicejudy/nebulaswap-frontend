@@ -20,10 +20,10 @@ const ColoredWordHeading: React.FC<React.PropsWithChildren<HeadingProps>> = ({
     const remaining = split.slice(1).join(' ')
     return { firstWord: first, remainingWords: remaining }
   }, [text])
-  const displayedColor = (theme.colors[firstColor] as string) ?? theme.colors.primary
+  const displayedColor = (theme.colors[firstColor] as string) ?? theme.colors.spec
 
   return (
-    <Heading scale="xl" mb={mb} {...props}>
+    <Heading scale="xl" color="primary" mb={mb} {...props}>
       <span style={{ color: displayedColor }}>{firstWord} </span>
       {remainingWords}
     </Heading>

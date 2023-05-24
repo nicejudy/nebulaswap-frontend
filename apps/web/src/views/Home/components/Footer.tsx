@@ -123,7 +123,7 @@ const Footer = () => {
           {t('Learn how to start')}
           <OpenNewIcon color="primary" ml="4px" />
         </Link>
-        {!account && <ConnectWalletButton mt="24px" />}
+        {!account && <ConnectWalletButton mt="24px" variant="spec1" />}
       </Wrapper>
     </>
   )
