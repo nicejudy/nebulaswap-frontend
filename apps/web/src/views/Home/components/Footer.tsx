@@ -8,6 +8,7 @@ import { useAccount } from 'wagmi'
 import SunburstSvg from './SunburstSvg'
 import CompositeImage from './CompositeImage'
 import BunnyImg from '../../../../public/images/home/flying-pancakes/planet.png'
+import BunnyImg1 from '../../../../public/images/home/flying-pancakes/planet1.png'
 
 const BgWrapper = styled.div`
   overflow: hidden;
@@ -57,11 +58,22 @@ const TopLeftImgWrapper = styled(Flex)`
   left: 0;
   top: 0;
 `
+const TopLeftImgWrapper1 = styled(Flex)`
+  position: absolute;
+  left: 15%;
+  top: 40%;
+`
 
 const BottomRightImgWrapper = styled(Flex)`
   position: absolute;
   right: 0;
-  bottom: 0;
+  top: 0;
+`
+
+const BottomRightImgWrapper1 = styled(Flex)`
+  position: absolute;
+  right: 15%;
+  top: 40%;
 `
 
 const topLeftImage = {
@@ -101,28 +113,38 @@ const Footer = () => {
             <Image src={BunnyImg} priority placeholder="blur" alt={t('Lunar bunny')} />
             {/* <img src="/images/home/flying-pancakes/planet.png" width="256px" /> */}
           </TopLeftImgWrapper>
+          <TopLeftImgWrapper1>
+            {/* <CompositeImage {...topLeftImage} maxHeight="256px" /> */}
+            <Image src={BunnyImg1} width={200} height={120} priority placeholder="blur" alt={t('Lunar bunny')} />
+            {/* <img src="/images/home/flying-pancakes/planet.png" width="256px" /> */}
+          </TopLeftImgWrapper1>
           <BottomRightImgWrapper>
             {/* <CompositeImage {...bottomRightImage} maxHeight="256px" /> */}
-            <Image src={BunnyImg} priority placeholder="blur" alt={t('Lunar bunny')} />
+            <Image src={BunnyImg1} priority placeholder="blur" alt={t('Lunar bunny')} />
             {/* <img src="/images/home/flying-pancakes/planet.png" width="256px" /> */}
           </BottomRightImgWrapper>
+          <BottomRightImgWrapper1>
+            {/* <CompositeImage {...bottomRightImage} maxHeight="256px" /> */}
+            <Image src={BunnyImg} width={200} height={120} priority placeholder="blur" alt={t('Lunar bunny')} />
+            {/* <img src="/images/home/flying-pancakes/planet.png" width="256px" /> */}
+          </BottomRightImgWrapper1>
         </FloatingPancakesWrapper>
       )}
       <Wrapper>
-        <Heading mb="24px" scale="xl" color="white">
+        {/* <Heading mb="24px" scale="xl" color="spec">
           {t('Start in seconds.')}
         </Heading>
-        <Text textAlign="center" color="white">
+        <Text textAlign="center" color="primary">
           {t('Connect your crypto wallet to start using the app in seconds.')}
         </Text>
-        <Text mb="24px" bold color="white">
+        <Text mb="24px" bold color="primary">
           {t('No registration needed.')}
-        </Text>
+        </Text> */}
 
-        <Link external href="https://docs.pancakeswap.finance/">
+        {/* <Link external href="https://docs.pancakeswap.finance/">
           {t('Learn how to start')}
           <OpenNewIcon color="primary" ml="4px" />
-        </Link>
+        </Link> */}
         {!account && <ConnectWalletButton mt="24px" variant="spec1" />}
       </Wrapper>
     </>
