@@ -130,7 +130,7 @@ const Hero = () => {
           <Heading scale="xxl" color="spec" mb="24px">
             {t('NEBULASWAP')}
           </Heading>
-          <Heading scale="md" mb="24px">
+          <Heading scale="md" mb="24px" color="textSubtle" >
             {t('Trade & Farm & Earn & Enjoy NFTs on NebulaSwap.')}
           </Heading>
           <Flex>

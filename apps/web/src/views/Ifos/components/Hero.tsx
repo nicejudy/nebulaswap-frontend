@@ -67,10 +67,10 @@ const Hero = () => {
             style={{ gap: '4px' }}
           >
             <Box>
-              <StyledHeading as="h1" mb={['12px', '12px', '16px']}>
+              <StyledHeading as="h1" mb={['12px', '12px', '16px']} color="spec">
                 {t('Presale')}
               </StyledHeading>
-              <StyledSubTitle bold>
+              <StyledSubTitle bold color="textSubtle">
                 {t('Participate in presale of our governance token - NEBULA')}
                 {isMobile && <StyledButton onClick={handleClick}>{t('How does it work?')}</StyledButton>}
               </StyledSubTitle>

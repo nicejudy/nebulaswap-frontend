@@ -60,6 +60,7 @@ const TopBannerContainer = styled.div<{ height: number }>`
 const BodyWrapper = styled(Box)`
   position: relative;
   display: flex;
+  margin-top: 60px;
   max-width: 100vw;
 `;
 
