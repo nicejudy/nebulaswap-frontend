@@ -12,7 +12,7 @@ const StyledComing = styled.div`
   justify-content: center;
 `;
 
-const Coming = ({ text = "Coming Soon", mt = 0 }: { text?: string, mt?: number }) => {
+const Coming = ({ text = "Available after Launchpad", mt = 0 }: { text?: string, mt?: number }) => {
   const { t } = useTranslation();
 
   return (
