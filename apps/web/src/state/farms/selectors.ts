@@ -39,6 +39,7 @@ export const farmFromLpSymbolSelector = (lpSymbol: string) =>
 
 export const makeLpTokenPriceFromLpSymbolSelector = (lpSymbol: string) =>
   createSelector([selectFarmByKey('lpSymbol', lpSymbol)], (farm) => {
+    let lpTokenPrice = BIG_ZERO
     console.log(0)
     if (farm) {
       const lpTotalInQuoteToken = farm.lpTotalInQuoteToken ? new BigNumber(farm.lpTotalInQuoteToken) : BIG_ZERO
