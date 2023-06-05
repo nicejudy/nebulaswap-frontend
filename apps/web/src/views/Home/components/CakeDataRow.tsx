@@ -62,7 +62,7 @@ const Grid = styled.div`
   }
 `
 
-const emissionsPerBlock = 1
+const emissionsPerBlock = 1.0
 
 /**
  * User (Planet Finance) built a contract on top of our original manual CAKE pool,
@@ -80,42 +80,38 @@ const CakeDataRow = () => {
   const { observerRef, isIntersecting } = useIntersectionObserver()
   const [loadData, setLoadData] = useState(false)
   const {
-    // data: { cakeSupply, burnedBalance, circulatingSupply } = {
-    data: { cakeSupply } = {
+    data: { cakeSupply, burnedBalance, circulatingSupply } = {
       cakeSupply: 0,
-      // burnedBalance: 0,
-      // circulatingSupply: 0,
+      burnedBalance: 0,
+      circulatingSupply: 0,
     },
   } = useSWR(
     loadData ? ['cakeDataRow'] : null,
     async () => {
       const totalSupplyCall = { abi: cakeAbi, address: ethereumTokens.nebula.address, name: 'totalSupply' }
-      // const burnedTokenCall = {
-      //   abi: cakeAbi,
-      //   address: ethereumTokens.nebula.address,
-      //   name: 'balanceOf',
-      //   params: ['0x000000000000000000000000000000000000dEaD'],
-      // }
-      // const cakeVaultCall = {
-      //   abi: cakeVaultV2Abi,
-      //   address: cakeVaultAddress,
-      //   name: 'totalLockedAmount',
-      // }
+      const burnedTokenCall = {
+        abi: cakeAbi,
+        address: ethereumTokens.nebula.address,
+        name: 'balanceOf',
+        params: ['0x000000000000000000000000000000000000dEaD'],
+      }
+      const cakeVaultCall = {
+        abi: cakeVaultV2Abi,
+        address: cakeVaultAddress,
+        name: 'totalLockedAmount',
+      }
 
-      // const [[totalSupply], [burned], [totalLockedAmount]] = await multicallv3({
-      const [[totalSupply]] = await multicallv3({
-        // calls: [totalSupplyCall, burnedTokenCall, cakeVaultCall],
-        calls: [totalSupplyCall],
+      const [[totalSupply], [burned], [totalLockedAmount]] = await multicallv3({
+        calls: [totalSupplyCall, burnedTokenCall, cakeVaultCall],
         allowFailure: true,
       })
-      // const totalBurned = planetFinanceBurnedTokensWei.add(burned)
-      // const circulating = totalSupply.sub(totalBurned.add(totalLockedAmount))
+      const totalBurned = planetFinanceBurnedTokensWei.add(burned)
+      const circulating = totalSupply.sub(totalBurned.add(totalLockedAmount))
 
       return {
-        // cakeSupply: totalSupply && burned ? +formatBigNumber(totalSupply.sub(totalBurned)) : 0,
-        cakeSupply: totalSupply,
-        // burnedBalance: burned ? +formatBigNumber(totalBurned) : 0,
-        // circulatingSupply: circulating ? +formatBigNumber(circulating) : 0,
+        cakeSupply: totalSupply && burned ? +formatBigNumber(totalSupply.sub(totalBurned)) : 0,
+        burnedBalance: burned ? +formatBigNumber(totalBurned) : 0,
+        circulatingSupply: circulating ? +formatBigNumber(circulating) : 0,
       }
     },
     {
@@ -123,8 +119,7 @@ const CakeDataRow = () => {
     },
   )
   const cakePriceBusd = usePriceCakeBusd()
-  // const mcap = cakePriceBusd.times(circulatingSupply)
-  const mcap = cakePriceBusd.times(cakeSupply)
+  const mcap = cakePriceBusd.times(circulatingSupply)
   const mcapString = formatLocalisedCompactNumber(mcap.toNumber())
 
   useEffect(() => {
@@ -135,45 +130,50 @@ const CakeDataRow = () => {
 
   return (
     <Grid>
-      {/* <Flex flexDirection="column" style={{ gridArea: 'a' }}>
+      <Flex flexDirection="column" style={{ gridArea: 'a' }}>
         <Text color="textSubtle">{t('Circulating Supply')}</Text>
-        {circulatingSupply ? (
+        {/* {circulatingSupply ? (
           <Balance decimals={0} lineHeight="1.1" color="spec" fontSize="24px" bold value={circulatingSupply} />
         ) : (
           <Skeleton height={24} width={126} my="4px" />
-        )}
-      </Flex> */}
+        )} */}
+        <Skeleton height={24} width={126} my="4px" />
+      </Flex>
       <StyledColumn noMobileBorder style={{ gridArea: 'b' }}>
         <Text color="textSubtle">{t('Total supply')}</Text>
-        {cakeSupply ? (
+        {/* {cakeSupply ? (
           <Balance decimals={0} lineHeight="1.1" color="spec" fontSize="24px" bold value={cakeSupply} />
         ) : (
           <>
             <div ref={observerRef} />
             <Skeleton height={24} width={126} my="4px" />
           </>
-        )}
+        )} */}
+        <Skeleton height={24} width={126} my="4px" />
       </StyledColumn>
-      {/* <StyledColumn noMobileBorder style={{ gridArea: 'c' }}>
+      <StyledColumn noMobileBorder style={{ gridArea: 'c' }}>
         <Text color="textSubtle">{t('Max Supply')}</Text>
+
         <Balance decimals={0} lineHeight="1.1" color="spec" fontSize="24px" bold value={750000000} />
-      </StyledColumn> */}
+      </StyledColumn>
       <StyledColumn noDesktopBorder style={{ gridArea: 'd' }}>
         <Text color="textSubtle">{t('Market cap')}</Text>
-        {mcap?.gt(0) && mcapString ? (
+        {/* {mcap?.gt(0) && mcapString ? (
           <Heading scale="lg" color="spec" >{t('$%marketCap%', { marketCap: mcapString })}</Heading>
         ) : (
           <Skeleton height={24} width={126} my="4px" />
-        )}
+        )} */}
+        <Skeleton height={24} width={126} my="4px" />
       </StyledColumn>
-      {/* <StyledColumn style={{ gridArea: 'e' }}>
+      <StyledColumn style={{ gridArea: 'e' }}>
         <Text color="textSubtle">{t('Burned to date')}</Text>
-        {burnedBalance ? (
+        {/* {burnedBalance ? (
           <Balance decimals={0} lineHeight="1.1" color="spec" fontSize="24px" bold value={burnedBalance} />
         ) : (
           <Skeleton height={24} width={126} my="4px" />
-        )}
-      </StyledColumn> */}
+        )} */}
+        <Skeleton height={24} width={126} my="4px" />
+      </StyledColumn>
       <StyledColumn style={{ gridArea: 'f' }}>
         <Text color="textSubtle">{t('Current emissions')}</Text>
 
