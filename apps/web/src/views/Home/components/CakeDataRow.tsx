@@ -81,7 +81,7 @@ const CakeDataRow = () => {
   const [loadData, setLoadData] = useState(false)
   const {
     // data: { cakeSupply, burnedBalance, circulatingSupply } = {
-    data: { cakeSupply, burnedBalance, circulatingSupply } = {
+    data: { cakeSupply } = {
       cakeSupply: 0,
       // burnedBalance: 0,
       // circulatingSupply: 0,
@@ -123,7 +123,8 @@ const CakeDataRow = () => {
     },
   )
   const cakePriceBusd = usePriceCakeBusd()
-  const mcap = cakePriceBusd.times(circulatingSupply)
+  // const mcap = cakePriceBusd.times(circulatingSupply)
+  const mcap = cakePriceBusd.times(cakeSupply)
   const mcapString = formatLocalisedCompactNumber(mcap.toNumber())
 
   useEffect(() => {
