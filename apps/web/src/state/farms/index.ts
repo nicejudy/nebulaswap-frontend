@@ -15,6 +15,7 @@ import { getFarmsPriceHelperLpFiles } from 'config/constants/priceHelperLps'
 import stringify from 'fast-json-stable-stringify'
 import keyBy from 'lodash/keyBy'
 import type { AppState } from 'state'
+// import { useBUSDCakeAmount, useCakeBusdPrice } from 'hooks/useBUSDPrice'
 import { getMasterChefAddress } from 'utils/addressHelpers'
 import { getBalanceAmount } from '@pancakeswap/utils/formatBalance'
 import multicall, { multicallv2 } from 'utils/multicall'
@@ -32,7 +33,6 @@ import {
 import { fetchMasterChefFarmPoolLength } from './fetchMasterChefData'
 import getFarmsPrices from './getFarmsPrices'
 import getFarmsAprs from './getFarmsAprs'
-import { useBUSDCakeAmount, useCakeBusdPrice } from 'hooks/useBUSDPrice'
 
 /**
  * @deprecated
