@@ -222,7 +222,8 @@ export const getLotteryV2Contract = (signer?: Signer | Provider) => {
   return getContract({ abi: lotteryV2Abi, address: getLotteryV2Address(), signer }) as LotteryV2
 }
 export const getMasterchefContract = (signer?: Signer | Provider, chainId?: number) => {
-  return getContract({ abi: masterChef, address: getMasterChefAddress(chainId), signer }) as Masterchef
+  // return getContract({ abi: masterChef, address: getMasterChefAddress(chainId), signer }) as Masterchef
+  return getContract({ abi: masterChefV1, address: getMasterChefAddress(chainId), signer }) as Masterchef
 }
 export const getMasterchefV1Contract = (signer?: Signer | Provider) => {
   return getContract({ abi: masterChefV1, address: getMasterChefV1Address(), signer }) as MasterchefV1

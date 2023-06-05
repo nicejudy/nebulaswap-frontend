@@ -25,6 +25,7 @@ import {
 import styled from 'styled-components'
 import Page from 'components/Layout/Page'
 import { useFarms, usePollFarmsWithUserData, usePriceCakeBusd } from 'state/farms/hooks'
+// import { useFarmsV1 as useFarms, usePollFarmsV1WithUserData as usePollFarmsWithUserData, usePriceCakeBusd } from 'state/farmsV1/hooks'
 import { useCakeVaultUserData } from 'state/pools/hooks'
 import { useIntersectionObserver } from '@pancakeswap/hooks'
 import { DeserializedFarm, FarmWithStakedValue, filterFarmsByQuery } from '@pancakeswap/farms'
@@ -384,14 +385,14 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
             </Flex>
             <FarmUI.FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
             <Flex mt="20px" ml="16px">
-              <FarmTypesFilter
+              {/* <FarmTypesFilter
                 boostedOnly={boostedOnly}
                 handleSetBoostedOnly={setBoostedOnly}
                 stableSwapOnly={stableSwapOnly}
                 handleSetStableSwapOnly={setStableSwapOnly}
                 farmTypesEnableCount={farmTypesEnableCount}
                 handleSetFarmTypesEnableCount={setFarmTypesEnableCount}
-              />
+              /> */}
               <ToggleWrapper>
                 <Toggle
                   id="staked-only-farms"

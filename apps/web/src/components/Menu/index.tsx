@@ -59,8 +59,8 @@ const Menu = (props) => {
         footerLinks={getFooterLinks}
         activeItem={activeMenuItem?.href}
         activeSubItem={activeSubMenuItem?.href}
-        buyCakeLink="https://pancakeswap.finance/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82&chainId=56"
         buyCakeLabel={t('Buy NEBULA')}
+        buyCakeLink="https://nebulaswap.xyz/swap?outputCurrency=0x144F6D1945DC54a8198D4a54D4b346a2170126c6"
         {...props}
       />
     </>

@@ -9,10 +9,6 @@
 //   YieldBoosterStateContext,
 // } from 'views/Farms/components/YieldBooster/components/ProxyFarmContainer'
 
-import { Coming } from "@pancakeswap/uikit"
-
-// import { Coming } from '@pancakeswap/uikit'
-
 // const ProxyFarmCardContainer = ({ farm }) => {
 //   const { address: account } = useAccount()
 //   const cakePrice = usePriceCakeBusd()
@@ -62,8 +58,10 @@ import { Coming } from "@pancakeswap/uikit"
 
 // FarmsPage.chains = SUPPORT_FARMS
 
+import { Coming } from "@pancakeswap/uikit"
+
 const FarmsPage = () => <Coming />
 
-// FarmsPage.chains = []
+FarmsPage.chains = []
 
 export default FarmsPage

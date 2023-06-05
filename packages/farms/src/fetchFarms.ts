@@ -11,7 +11,8 @@ import { getFullDecimalMultiplier } from './getFullDecimalMultiplier'
 
 const evmNativeStableLpMap = {
   [ChainId.ETHEREUM]: {
-    address: '0x2E8135bE71230c6B1B4045696d41C09Db0414226',
+    // address: '0x2E8135bE71230c6B1B4045696d41C09Db0414226',
+    address: '0x357DbDb8F654BC8Dff53D1f258997BCDa596F5D8',
     wNative: 'WETH',
     stable: 'USDC',
   },
@@ -44,7 +45,7 @@ export type FetchFarmsParams = {
   masterChefAddress: string
   chainId: number
   totalRegularAllocPoint: BigNumber
-  totalSpecialAllocPoint: BigNumber
+  // totalSpecialAllocPoint: BigNumber
 }
 
 export async function farmV2FetchFarms({
@@ -54,7 +55,7 @@ export async function farmV2FetchFarms({
   masterChefAddress,
   chainId,
   totalRegularAllocPoint,
-  totalSpecialAllocPoint,
+  // totalSpecialAllocPoint,
 }: FetchFarmsParams) {
   const stableFarms = farms.filter(isStableFarm)
 
@@ -97,7 +98,7 @@ export async function farmV2FetchFarms({
           allocPoint: poolInfos[index]?.allocPoint,
           isRegular: poolInfos[index]?.isRegular,
           totalRegularAllocPoint,
-          totalSpecialAllocPoint,
+          // totalSpecialAllocPoint,
         }),
       }
     } catch (error) {
@@ -107,7 +108,7 @@ export async function farmV2FetchFarms({
         token0Decimals: farm.token.decimals,
         token1Decimals: farm.quoteToken.decimals,
         totalRegularAllocPoint,
-        totalSpecialAllocPoint,
+        // totalSpecialAllocPoint,
       })
       throw error
     }
@@ -162,6 +163,8 @@ const masterChefV2Abi = [
   },
 ]
 
+const masterChefAbi = [{"inputs":[{"internalType":"contract NebulaToken","name":"_nebula","type":"address"},{"internalType":"address","name":"_devaddr","type":"address"},{"internalType":"uint256","name":"_nebulaPerBlock","type":"uint256"},{"internalType":"uint256","name":"_startBlock","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":true,"internalType":"uint256","name":"pid","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Deposit","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":true,"internalType":"uint256","name":"pid","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"EmergencyWithdraw","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":true,"internalType":"uint256","name":"pid","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Withdraw","type":"event"},{"inputs":[],"name":"BONUS_MULTIPLIER","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_allocPoint","type":"uint256"},{"internalType":"contract IERC20","name":"_lpToken","type":"address"},{"internalType":"bool","name":"_withUpdate","type":"bool"}],"name":"add","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_pid","type":"uint256"},{"internalType":"uint256","name":"_amount","type":"uint256"}],"name":"deposit","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_devaddr","type":"address"}],"name":"dev","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"devaddr","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_pid","type":"uint256"}],"name":"emergencyWithdraw","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amount","type":"uint256"}],"name":"enterStaking","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_from","type":"uint256"},{"internalType":"uint256","name":"_to","type":"uint256"}],"name":"getMultiplier","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amount","type":"uint256"}],"name":"leaveStaking","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"massUpdatePools","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_pid","type":"uint256"}],"name":"migrate","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"migrator","outputs":[{"internalType":"contract IMigratorChef","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"nebula","outputs":[{"internalType":"contract NebulaToken","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"nebulaPerBlock","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_pid","type":"uint256"},{"internalType":"address","name":"_user","type":"address"}],"name":"pendingNebula","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"poolInfo","outputs":[{"internalType":"contract IERC20","name":"lpToken","type":"address"},{"internalType":"uint256","name":"allocPoint","type":"uint256"},{"internalType":"uint256","name":"lastRewardBlock","type":"uint256"},{"internalType":"uint256","name":"accNebulaPerShare","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"poolLength","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_pid","type":"uint256"},{"internalType":"uint256","name":"_allocPoint","type":"uint256"},{"internalType":"bool","name":"_withUpdate","type":"bool"}],"name":"set","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"contract IMigratorChef","name":"_migrator","type":"address"}],"name":"setMigrator","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"startBlock","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalAllocPoint","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"multiplierNumber","type":"uint256"}],"name":"updateMultiplier","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_pid","type":"uint256"}],"name":"updatePool","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"address","name":"","type":"address"}],"name":"userInfo","outputs":[{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"uint256","name":"rewardDebt","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_pid","type":"uint256"},{"internalType":"uint256","name":"_amount","type":"uint256"}],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+
 const masterChefFarmCalls = (farm: SerializedFarmConfig, masterChefAddress: string) => {
   const { pid } = farm
 
@@ -185,9 +188,10 @@ export const fetchMasterChefData = async (
     const masterChefAggregatedCalls = masterChefCalls.filter((masterChefCall) => masterChefCall !== null) as Call[]
 
     const masterChefMultiCallResult = await multicallv2({
-      abi: masterChefV2Abi,
+      // abi: masterChefV2Abi,
+      abi: masterChefAbi,
       calls: masterChefAggregatedCalls,
-      chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.BSC,
+      chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.ETHEREUM,
     })
 
     let masterChefChunkedResultCounter = 0
@@ -215,10 +219,11 @@ export const fetchMasterChefV2Data = async ({
   masterChefAddress: string
 }) => {
   try {
-    const [[poolLength], [totalRegularAllocPoint], [totalSpecialAllocPoint], [cakePerBlock]] = await multicallv2<
+    const [[poolLength], [totalRegularAllocPoint], [cakePerBlock]] = await multicallv2<
       [[BigNumber], [BigNumber], [BigNumber], [BigNumber]]
     >({
-      abi: masterChefV2Abi,
+      // abi: masterChefV2Abi,
+      abi: masterChefAbi,
       calls: [
         {
           address: masterChefAddress,
@@ -226,25 +231,25 @@ export const fetchMasterChefV2Data = async ({
         },
         {
           address: masterChefAddress,
-          name: 'totalRegularAllocPoint',
+          name: 'totalAllocPoint',
         },
+        // {
+        //   address: masterChefAddress,
+        //   name: 'totalSpecialAllocPoint',
+        // },
         {
           address: masterChefAddress,
-          name: 'totalSpecialAllocPoint',
-        },
-        {
-          address: masterChefAddress,
-          name: 'cakePerBlock',
-          params: [true],
+          name: 'nebulaPerBlock',
+          // params: [true],
         },
       ],
-      chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.BSC,
+      chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.ETHEREUM,
     })
 
     return {
       poolLength,
       totalRegularAllocPoint,
-      totalSpecialAllocPoint,
+      // totalSpecialAllocPoint,
       cakePerBlock,
     }
   } catch (error) {
@@ -345,17 +350,18 @@ interface FarmAllocationParams {
   allocPoint?: BigNumber
   isRegular?: boolean
   totalRegularAllocPoint: BigNumber
-  totalSpecialAllocPoint: BigNumber
+  // totalSpecialAllocPoint: BigNumber
 }
 
 const getFarmAllocation = ({
   allocPoint,
   isRegular,
   totalRegularAllocPoint,
-  totalSpecialAllocPoint,
+  // totalSpecialAllocPoint,
 }: FarmAllocationParams) => {
   const _allocPoint = allocPoint ? FixedNumber.from(allocPoint) : FIXED_ZERO
-  const totalAlloc = isRegular ? totalRegularAllocPoint : totalSpecialAllocPoint
+  // const totalAlloc = isRegular ? totalRegularAllocPoint : totalSpecialAllocPoint
+  const totalAlloc = totalRegularAllocPoint
   const poolWeight =
     !totalAlloc.isZero() && !_allocPoint.isZero() ? _allocPoint.divUnsafe(FixedNumber.from(totalAlloc)) : FIXED_ZERO
 

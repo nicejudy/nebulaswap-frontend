@@ -8,7 +8,8 @@ import type {
   UnknownAsyncThunkRejectedAction,
 } from '@reduxjs/toolkit/dist/matchers'
 import BigNumber from 'bignumber.js'
-import masterchefABI from 'config/abi/masterchef.json'
+// import masterchefABI from 'config/abi/masterchef.json'
+import masterchefABI from 'config/abi/masterchefV1.json'
 import { FARM_API } from 'config/constants/endpoints'
 import { getFarmsPriceHelperLpFiles } from 'config/constants/priceHelperLps'
 import stringify from 'fast-json-stable-stringify'
@@ -30,6 +31,8 @@ import {
 } from './fetchFarmUser'
 import { fetchMasterChefFarmPoolLength } from './fetchMasterChefData'
 import getFarmsPrices from './getFarmsPrices'
+import getFarmsAprs from './getFarmsAprs'
+import { useBUSDCakeAmount, useCakeBusdPrice } from 'hooks/useBUSDPrice'
 
 /**
  * @deprecated
@@ -37,14 +40,25 @@ import getFarmsPrices from './getFarmsPrices'
 const fetchFetchPublicDataOld = async ({ pids, chainId }): Promise<[SerializedFarm[], number, number]> => {
   const [poolLength, [cakePerBlockRaw]] = await Promise.all([
     fetchMasterChefFarmPoolLength(chainId),
-    multicall(masterchefABI, [
-      {
-        // BSC only
-        address: getMasterChefAddress(ChainId.BSC),
-        name: 'cakePerBlock',
-        params: [true],
-      },
-    ]),
+    // multicall(masterchefABI, [
+    //   {
+    //     // BSC only
+    //     // address: getMasterChefAddress(ChainId.BSC),
+    //     address: getMasterChefAddress(ChainId.ETHEREUM),
+    //     name: 'nebulaPerBlock',
+    //     // params: [true],
+    //   },
+    // ]),
+    multicallv2({
+      abi: masterchefABI,
+      calls: [
+        {
+          name: 'nebulaPerBlock',
+          address: getMasterChefAddress(chainId),
+        },
+      ],
+      chainId,
+    })
   ])
 
   const poolLengthAsBigNumber = new BigNumber(poolLength)
@@ -54,9 +68,9 @@ const fetchFetchPublicDataOld = async ({ pids, chainId }): Promise<[SerializedFa
     (farmConfig) => pids.includes(farmConfig.pid) && poolLengthAsBigNumber.gt(farmConfig.pid),
   )
   const priceHelperLpsConfig = getFarmsPriceHelperLpFiles(chainId)
-
   const farms = await fetchFarms(farmsCanFetch.concat(priceHelperLpsConfig), chainId)
   const farmsWithPrices = farms.length > 0 ? getFarmsPrices(farms, chainId) : []
+  // const farmsWithApr = farms.length > 0 ? getFarmsAprs(farms, useBUSDCakeAmount(1), regularCakePerBlock.toNumber()) : []
   return [farmsWithPrices, poolLengthAsBigNumber.toNumber(), regularCakePerBlock.toNumber()]
 }
 
@@ -126,7 +140,7 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
     const chain = chains.find((c) => c.id === chainId)
     if (!chain || !farmFetcher.isChainSupported(chain.id)) throw new Error('chain not supported')
     try {
-      if (flag === 'old') {
+      if (flag === 'pkg') {
         return fetchFetchPublicDataOld({ pids, chainId })
       }
       if (flag === 'api' && !fallback) {
@@ -248,7 +262,8 @@ export const fetchFarmUserDataAsync = createAsyncThunk<
     if (state.farms.chainId !== chainId) {
       await dispatch(fetchInitialFarmsData({ chainId }))
     }
-    const poolLength = state.farms.poolLength ?? (await fetchMasterChefFarmPoolLength(ChainId.BSC))
+    // const poolLength = state.farms.poolLength ?? (await fetchMasterChefFarmPoolLength(ChainId.BSC))
+    const poolLength = state.farms.poolLength ?? (await fetchMasterChefFarmPoolLength(ChainId.ETHEREUM))
     const farmsConfig = await getFarmConfig(chainId)
     const farmsCanFetch = farmsConfig.filter(
       (farmConfig) => pids.includes(farmConfig.pid) && poolLength > farmConfig.pid,

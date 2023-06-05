@@ -212,13 +212,13 @@ const DepositModal: React.FC<React.PropsWithChildren<DepositModalProps>> = ({
             <Skeleton width={60} />
           )}
         </Flex>
-        {showCrossChainFarmWarning && (
+        {/* {showCrossChainFarmWarning && (
           <Box mt="15px">
             <Message variant="warning">
               <MessageText>{crossChainWarningText}</MessageText>
             </Message>
           </Box>
-        )}
+        )} */}
         <ModalActions>
           <Button variant="secondary" onClick={onDismiss} width="100%" disabled={pendingTx}>
             {t("Cancel")}

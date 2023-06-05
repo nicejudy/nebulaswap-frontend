@@ -4,6 +4,7 @@ export default {
   masterChef: {
     97: '0xB4A466911556e39210a6bB2FaECBB59E4eB7E43d',
     56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
+    42161: '0x1468ff801Db4e99dcBD2E433220Ac907Ab7086fe',
   },
   masterChefV1: {
     97: '0x1d32c2945C8FDCBc7156c553B7cEa4325a17f4f9',
@@ -155,6 +156,7 @@ export default {
     56: '0xE6c904424417D03451fADd6E3f5b6c26BcC43841', // Only for pass contracts test
     1: '0x2e71B2688019ebdFDdE5A45e6921aaebb15b25fb',
     5: '0xE6c904424417D03451fADd6E3f5b6c26BcC43841',
+    42161: '0x1468ff801Db4e99dcBD2E433220Ac907Ab7086fe',
   },
   crossFarmingSender: {
     56: '0x327d26dE30f92600620A99043034e0A5FD9402C8', // Only for pass contracts test

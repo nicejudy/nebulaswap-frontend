@@ -40,7 +40,7 @@ export default function useWarningImport() {
       ? urlLoadedTokens.filter((token: Token) => {
           const checksummedAddress = isAddress(token.address) || ''
 
-          return !(checksummedAddress in defaultTokens || token.address === "0xDE29f37Ab5ad889Ef704D967BfF8bB575bC20dA9") && token.chainId === chainId
+          return !(checksummedAddress in defaultTokens || token.address === "0x144F6D1945DC54a8198D4a54D4b346a2170126c6") && token.chainId === chainId
         })
       : []
 

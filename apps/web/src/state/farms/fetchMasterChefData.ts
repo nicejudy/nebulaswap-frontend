@@ -1,4 +1,5 @@
-import masterchefABI from 'config/abi/masterchef.json'
+// import masterchefABI from 'config/abi/masterchef.json'
+import masterchefABI from 'config/abi/masterchefV1.json'
 import chunk from 'lodash/chunk'
 import { ChainId } from '@pancakeswap/sdk'
 import BigNumber from 'bignumber.js'
@@ -31,7 +32,8 @@ export const fetchMasterChefFarmPoolLength = async (chainId: number) => {
 
 const masterChefFarmCalls = async (farm: SerializedFarm) => {
   const { pid, quoteToken } = farm
-  const multiCallChainId = farmFetcher.isTestnet(quoteToken.chainId) ? ChainId.BSC_TESTNET : ChainId.BSC
+  // const multiCallChainId = farmFetcher.isTestnet(quoteToken.chainId) ? ChainId.BSC_TESTNET : ChainId.BSC
+  const multiCallChainId = ChainId.ETHEREUM
   const masterChefAddress = getMasterChefAddress(multiCallChainId)
   const masterChefPid = pid
 
@@ -44,7 +46,8 @@ const masterChefFarmCalls = async (farm: SerializedFarm) => {
         },
         {
           address: masterChefAddress,
-          name: 'totalRegularAllocPoint',
+          // name: 'totalRegularAllocPoint',
+          name: 'totalAllocPoint',
         },
       ]
     : [null, null]
@@ -57,7 +60,8 @@ export const fetchMasterChefData = async (farms: SerializedFarmConfig[], chainId
     .filter((masterChefCall) => masterChefCall[0] !== null && masterChefCall[1] !== null)
     .flat()
 
-  const multiCallChainId = farmFetcher.isTestnet(chainId) ? ChainId.BSC_TESTNET : ChainId.BSC
+  // const multiCallChainId = farmFetcher.isTestnet(chainId) ? ChainId.BSC_TESTNET : ChainId.BSC
+  const multiCallChainId = ChainId.ETHEREUM
   const masterChefMultiCallResult = await multicallv2({
     abi: masterchefABI,
     calls: masterChefAggregatedCalls,

@@ -68,7 +68,8 @@ export const HarvestAction: React.FunctionComponent<React.PropsWithChildren<Harv
   const cakePrice = usePriceCakeBusd()
   let earnings = BIG_ZERO
   let earningsBusd = 0
-  let displayBalance = userDataReady ? earnings.toFixed(5, BigNumber.ROUND_DOWN) : <Skeleton width={60} />
+  // let displayBalance = userDataReady ? earnings.toFixed(5, BigNumber.ROUND_DOWN) : <Skeleton width={60} />
+  let displayBalance = earnings.toFixed(5, BigNumber.ROUND_DOWN)
 
   // If user didn't connect wallet default balance will be 0
   if (!earningsBigNumber.isZero()) {
@@ -93,7 +94,7 @@ export const HarvestAction: React.FunctionComponent<React.PropsWithChildren<Harv
       toastSuccess(
         `${t('Harvested')}!`,
         <ToastDescriptionWithTx txHash={receipt.transactionHash}>
-          {t('Your %symbol% earnings have been sent to your wallet!', { symbol: 'CAKE' })}
+          {t('Your %symbol% earnings have been sent to your wallet!', { symbol: 'NEBULA' })}
         </ToastDescriptionWithTx>,
       )
       onDone?.()

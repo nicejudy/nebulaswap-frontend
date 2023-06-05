@@ -2,13 +2,8 @@
   {
     "inputs": [
       {
-        "internalType": "contract CakeToken",
-        "name": "_cake",
-        "type": "address"
-      },
-      {
-        "internalType": "contract SyrupBar",
-        "name": "_syrup",
+        "internalType": "contract NebulaToken",
+        "name": "_nebula",
         "type": "address"
       },
       {
@@ -18,7 +13,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "_cakePerBlock",
+        "name": "_nebulaPerBlock",
         "type": "uint256"
       },
       {
@@ -145,7 +140,7 @@
         "type": "uint256"
       },
       {
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "_lpToken",
         "type": "address"
       },
@@ -158,32 +153,6 @@
     "name": "add",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "cake",
-    "outputs": [
-      {
-        "internalType": "contract CakeToken",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "cakePerBlock",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -328,6 +297,32 @@
   },
   {
     "inputs": [],
+    "name": "nebula",
+    "outputs": [
+      {
+        "internalType": "contract NebulaToken",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "nebulaPerBlock",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "owner",
     "outputs": [
       {
@@ -352,7 +347,7 @@
         "type": "address"
       }
     ],
-    "name": "pendingCake",
+    "name": "pendingNebula",
     "outputs": [
       {
         "internalType": "uint256",
@@ -374,7 +369,7 @@
     "name": "poolInfo",
     "outputs": [
       {
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "lpToken",
         "type": "address"
       },
@@ -390,7 +385,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "accCakePerShare",
+        "name": "accNebulaPerShare",
         "type": "uint256"
       }
     ],
@@ -461,19 +456,6 @@
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "syrup",
-    "outputs": [
-      {
-        "internalType": "contract SyrupBar",
-        "name": "",
-        "type": "address"
       }
     ],
     "stateMutability": "view",

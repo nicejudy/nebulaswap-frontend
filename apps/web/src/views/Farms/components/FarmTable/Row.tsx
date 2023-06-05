@@ -126,14 +126,15 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
               case 'type':
                 return (
                   <td key={key}>
-                    {userDataReady ? (
+                    {/* {userDataReady ? (
                       <CellInner style={{ width: '140px' }}>
                         {props[key] === 'community' ? <FarmAuctionTag scale="sm" /> : <CoreTag scale="sm" />}
                         {props?.details?.boosted ? <BoostedTag scale="sm" ml="16px" /> : null}
                       </CellInner>
                     ) : (
                       <Skeleton width={60} height={24} />
-                    )}
+                    )} */}
+                    <></>
                   </td>
                 )
               case 'details':

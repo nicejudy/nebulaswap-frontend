@@ -1,10 +1,11 @@
 import { ChainId, WETH9, ERC20Token } from '@pancakeswap/sdk'
-import { USDC, USDT, WBTC_ETH, NEBULA_ETH } from './common'
+import { USDC, USDT, WBTC_ETH, NEBULA_ETH, DAI_ETH } from './common'
 
 export const ethereumTokens = {
   weth: WETH9[ChainId.ETHEREUM],
   usdt: USDT[ChainId.ETHEREUM],
   usdc: USDC[ChainId.ETHEREUM],
+  dai: DAI_ETH,
   wbtc: WBTC_ETH,
   nebula: NEBULA_ETH,
 //   sdao: new ERC20Token(

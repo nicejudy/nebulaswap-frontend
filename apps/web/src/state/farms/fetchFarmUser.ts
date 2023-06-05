@@ -1,7 +1,8 @@
 import BigNumber from 'bignumber.js'
 import { ChainId } from '@pancakeswap/sdk'
 import erc20ABI from 'config/abi/erc20.json'
-import masterchefABI from 'config/abi/masterchef.json'
+// import masterchefABI from 'config/abi/masterchef.json'
+import masterchefABI from 'config/abi/masterchefV1.json'
 import nonBscVault from 'config/abi/nonBscVault.json'
 import multicall, { multicallv2 } from 'utils/multicall'
 import { getMasterChefAddress, getNonBscVaultAddress } from 'utils/addressHelpers'
@@ -16,12 +17,14 @@ export const fetchFarmUserAllowances = async (
   chainId: number,
   proxyAddress?: string,
 ) => {
-  const isBscNetwork = verifyBscNetwork(chainId)
-  const masterChefAddress = isBscNetwork ? getMasterChefAddress(chainId) : getNonBscVaultAddress(chainId)
+  // const isBscNetwork = verifyBscNetwork(chainId)
+  // const masterChefAddress = isBscNetwork ? getMasterChefAddress(chainId) : getNonBscVaultAddress(chainId)
+  const masterChefAddress = getMasterChefAddress(chainId)
 
   const calls = farmsToFetch.map((farm) => {
     const lpContractAddress = farm.lpAddress
-    return { address: lpContractAddress, name: 'allowance', params: [account, proxyAddress || masterChefAddress] }
+    // return { address: lpContractAddress, name: 'allowance', params: [account, proxyAddress || masterChefAddress] }
+    return { address: lpContractAddress, name: 'allowance', params: [account, masterChefAddress] }
   })
 
   const rawLpAllowances = await multicall<BigNumber[]>(erc20ABI, calls, chainId)
@@ -58,19 +61,22 @@ export const fetchFarmUserStakedBalances = async (
   farmsToFetch: SerializedFarmConfig[],
   chainId: number,
 ) => {
-  const isBscNetwork = verifyBscNetwork(chainId)
-  const masterChefAddress = isBscNetwork ? getMasterChefAddress(chainId) : getNonBscVaultAddress(chainId)
+  // const isBscNetwork = verifyBscNetwork(chainId)
+  // const masterChefAddress = isBscNetwork ? getMasterChefAddress(chainId) : getNonBscVaultAddress(chainId)
+  const masterChefAddress = getMasterChefAddress(chainId)
 
   const calls = farmsToFetch.map((farm) => {
     return {
       address: masterChefAddress,
       name: 'userInfo',
-      params: [farm.vaultPid ?? farm.pid, account],
+      // params: [farm.vaultPid ?? farm.pid, account],
+      params: [farm.pid, account],
     }
   })
 
   const rawStakedBalances = await multicallv2({
-    abi: isBscNetwork ? masterchefABI : nonBscVault,
+    // abi: isBscNetwork ? masterchefABI : nonBscVault,
+    abi: masterchefABI,
     calls,
     chainId,
     options: { requireSuccess: false },
@@ -82,15 +88,18 @@ export const fetchFarmUserStakedBalances = async (
 }
 
 export const fetchFarmUserEarnings = async (account: string, farmsToFetch: SerializedFarmConfig[], chainId: number) => {
-  const isBscNetwork = verifyBscNetwork(chainId)
-  const multiCallChainId = farmFetcher.isTestnet(chainId) ? ChainId.BSC_TESTNET : ChainId.BSC
-  const userAddress = isBscNetwork ? account : await fetchCProxyAddress(account, multiCallChainId)
+  // const isBscNetwork = verifyBscNetwork(chainId)
+  // const multiCallChainId = farmFetcher.isTestnet(chainId) ? ChainId.BSC_TESTNET : ChainId.BSC
+  const multiCallChainId = ChainId.ETHEREUM
+  // const userAddress = isBscNetwork ? account : await fetchCProxyAddress(account, multiCallChainId)
+  const userAddress = account
   const masterChefAddress = getMasterChefAddress(multiCallChainId)
 
   const calls = farmsToFetch.map((farm) => {
     return {
       address: masterChefAddress,
-      name: 'pendingCake',
+      // name: 'pendingCake',
+      name: 'pendingNebula',
       params: [farm.pid, userAddress],
     }
   })

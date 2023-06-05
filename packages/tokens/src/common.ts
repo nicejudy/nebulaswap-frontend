@@ -11,7 +11,7 @@ export const CAKE_MAINNET = new ERC20Token(
 
 export const NEBULA_ETH = new ERC20Token(
   ChainId.ETHEREUM,
-  '0xDE29f37Ab5ad889Ef704D967BfF8bB575bC20dA9',
+  '0x144F6D1945DC54a8198D4a54D4b346a2170126c6',
   18,
   'NEBULA',
   'Nebula Token',

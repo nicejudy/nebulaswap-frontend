@@ -94,7 +94,7 @@ const RoiCalculatorModal: React.FC<React.PropsWithChildren<RoiCalculatorModalPro
   stakingTokenPrice,
   multiplier,
   initialValue,
-  earningTokenSymbol = "CAKE",
+  earningTokenSymbol = "NEBULA",
   autoCompoundFrequency = 0,
   performanceFee = 0,
   isFarm = false,
@@ -261,7 +261,7 @@ const RoiCalculatorModal: React.FC<React.PropsWithChildren<RoiCalculatorModalPro
               </FullWidthButtonMenu>
             </>
           )}
-          {bCakeCalculatorSlot && bCakeCalculatorSlot(principalAsToken)}
+          {/* {bCakeCalculatorSlot && bCakeCalculatorSlot(principalAsToken)} */}
           {autoCompoundFrequency === 0 && (
             <>
               <Text mt="24px" color="secondary" bold fontSize="12px" textTransform="uppercase">

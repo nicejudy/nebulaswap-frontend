@@ -43,6 +43,7 @@ export interface SerializedClassicFarmConfig extends FarmConfigBaseProps {
 export type SerializedFarmConfig = SerializedStableFarmConfig | SerializedClassicFarmConfig
 
 export interface SerializedFarmPublicData extends SerializedClassicFarmConfig {
+  apr?: string
   lpTokenPrice?: string
   tokenPriceBusd?: string
   quoteTokenPriceBusd?: string

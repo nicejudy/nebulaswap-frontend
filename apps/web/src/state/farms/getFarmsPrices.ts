@@ -123,7 +123,7 @@ export default getFarmsPrices
 
 const nativeStableLpMap = {
   [ChainId.ETHEREUM]: {
-    address: '0x2E8135bE71230c6B1B4045696d41C09Db0414226',
+    address: '0x357DbDb8F654BC8Dff53D1f258997BCDa596F5D8',
     wNative: 'WETH',
     stable: 'USDC',
   },
