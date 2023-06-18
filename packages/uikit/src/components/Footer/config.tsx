@@ -6,6 +6,7 @@ import {
   RedditIcon,
   InstagramIcon,
   GithubIcon,
+  ResourcesIcon,
   DiscordIcon,
   MediumIcon,
   YoutubeIcon,
@@ -89,7 +90,7 @@ export const socials = [
   {
     label: "Twitter",
     icon: TwitterIcon,
-    href: "https://twitter.com/pancakeswap",
+    href: "https://twitter.com/nebulaswapInfo",
   },
   // {
   //   label: "Telegram",
@@ -174,12 +175,12 @@ export const socials = [
   {
     label: "Github",
     icon: GithubIcon,
-    href: "https://github.com/pancakeswap/",
+    href: "https://github.com/nebulaswap/",
   },
   {
-    label: "Github",
-    icon: GithubIcon,
-    href: "https://github.com/pancakeswap/",
+    label: "Docs",
+    icon: ResourcesIcon,
+    href: "https://docs.nebulaswap.xyz/",
   },
   // {
   //   label: "Discord",
