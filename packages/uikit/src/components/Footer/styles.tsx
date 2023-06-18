@@ -34,8 +34,8 @@ export const StyledIconMobileContainer = styled(Box)`
 
 export const StyledToolsContainer = styled(Flex)`
   border-color: ${darkColors.cardBorder};
-  border-top-width: 1px;
-  border-bottom-width: 1px;
+  // border-top-width: 1px;
+  // border-bottom-width: 1px;
   border-style: solid;
   padding: 24px 0;
   margin-bottom: 24px;
@@ -49,7 +49,7 @@ export const StyledToolsContainer = styled(Flex)`
 `;
 
 export const StyledSocialLinks = styled(SocialLinks)`
-  border-bottom: 1px solid ${darkColors.cardBorder};
+  // border-bottom: 1px solid ${darkColors.cardBorder};
 `;
 
 export const StyledText = styled.span`

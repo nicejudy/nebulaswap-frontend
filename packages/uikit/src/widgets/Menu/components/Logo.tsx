@@ -60,7 +60,8 @@ const Logo: React.FC<React.PropsWithChildren<Props>> = ({ href }) => {
       <LogoWithTextIcon className="desktop-icon" /> */}
       <img src="/images/logo.png" width="42px" />
       <LogoText>
-        <span style={{ color: baseColors.primary, fontFamily: "Relative, sans-serif", fontSize: "24px", fontWeight: "600" }}> NebulaSwap </span>
+        <span style={{ color: baseColors.primary, fontFamily: "Relative, sans-serif", fontSize: "24px", fontWeight: "600" }}> AgeSwap </span>
+        {/* <span style={{ color: baseColors.primary, fontFamily: "Relative, sans-serif", fontSize: "24px", fontWeight: "600" }}> NebulaSwap </span> */}
       </LogoText>
     </>
   );

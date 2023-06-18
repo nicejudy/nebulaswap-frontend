@@ -24,6 +24,7 @@ const Wrapper = styled.div`
   width: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
+  min-height: 100vh;
 `;
 
 const StyledNav = styled.nav`
@@ -60,7 +61,7 @@ const TopBannerContainer = styled.div<{ height: number }>`
 const BodyWrapper = styled(Box)`
   position: relative;
   display: flex;
-  margin-top: 60px;
+  // margin-top: 60px;
   max-width: 100vw;
 `;
 
@@ -200,7 +201,7 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
           </BodyWrapper>
         </Wrapper>
       </AtomBox>
-      {/* <Footer
+      <Footer
         items={footerLinks}
         isDark={isDark}
         toggleTheme={toggleTheme}
@@ -210,8 +211,8 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
         cakePriceUsd={cakePriceUsd}
         buyCakeLabel={buyCakeLabel}
         buyCakeLink={buyCakeLink}
-        mb={[`${MOBILE_MENU_HEIGHT}px`, null, "0px"]}
-      /> */}
+        // mb={[`${MOBILE_MENU_HEIGHT}px`, null, `${MOBILE_MENU_HEIGHT}px`]}
+      />
       <AtomBox display={{ xs: "block", md: "none" }}>
         <BottomNav items={links} activeItem={activeItem} activeSubItem={activeSubItem} />
       </AtomBox>

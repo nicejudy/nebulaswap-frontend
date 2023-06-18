@@ -11,6 +11,10 @@ import {
   NftFillIcon,
   MoreIcon,
   DropdownMenuItems,
+  FarmIcon,
+  InfoIcon,
+  IfoIcon,
+  ResourcesIcon,
 } from '@pancakeswap/uikit'
 import { ContextApi } from '@pancakeswap/localization'
 import { nftsBaseUrl } from 'views/Nft/market/constants'
@@ -47,7 +51,7 @@ const config: (
       icon: SwapIcon,
       fillIcon: SwapFillIcon,
       href: '/swap',
-      showItemsOnMobile: false,
+      showItemsOnMobile: true,
       items: [
         {
           label: t('Swap'),
@@ -90,9 +94,10 @@ const config: (
     {
       label: t('Farm'),
       href: '/farms',
-      icon: EarnIcon,
-      fillIcon: EarnFillIcon,
+      icon: FarmIcon,
+      fillIcon: FarmIcon,
       image: '/images/decorations/pe2.png',
+      showItemsOnMobile: false,
       items: [
         // {
         //   label: t('Farms'),
@@ -111,6 +116,7 @@ const config: (
       icon: EarnIcon,
       fillIcon: EarnFillIcon,
       image: '/images/decorations/pe2.png',
+      showItemsOnMobile: false,
       items: [
         // {
         //   label: t('Farms'),
@@ -187,57 +193,59 @@ const config: (
     //     },
     //   ],
     // },
+    // {
+    //   label: 'Info',
+    //   href: '/info',
+    //   icon: InfoIcon,
+    //   hideSubNav: true,
+    //   showItemsOnMobile: false,
+    //   items: [
+    //     // {
+    //     //   label: t('Info'),
+    //     //   href: '/info',
+    //     // },
+    //     // {
+    //     //   label: t('IFO'),
+    //     //   href: '/ifo',
+    //     //   supportChainIds: SUPPORT_ONLY_BSC,
+    //     //   image: '/images/ifos/ifo-bunny.png',
+    //     // },
+    //     // {
+    //     //   label: t('Voting'),
+    //     //   href: '/voting',
+    //     //   supportChainIds: SUPPORT_ONLY_BSC,
+    //     //   image: '/images/voting/voting-bunny.png',
+    //     // },
+    //     // {
+    //     //   type: DropdownMenuItemType.DIVIDER,
+    //     // },
+    //     // {
+    //     //   label: t('Leaderboard'),
+    //     //   href: '/teams',
+    //     //   supportChainIds: SUPPORT_ONLY_BSC,
+    //     //   image: '/images/decorations/leaderboard.png',
+    //     // },
+    //     // {
+    //     //   type: DropdownMenuItemType.DIVIDER,
+    //     // },
+    //     // {
+    //     //   label: t('Blog'),
+    //     //   href: 'https://medium.com/pancakeswap',
+    //     //   type: DropdownMenuItemType.EXTERNAL_LINK,
+    //     // },
+    //     // {
+    //     //   label: t('Docs'),
+    //     //   href: 'https://docs.pancakeswap.finance',
+    //     //   type: DropdownMenuItemType.EXTERNAL_LINK,
+    //     // },
+    //   ].map((item) => addMenuItemSupported(item, chainId)),
+    // },
     {
-      label: 'Info',
-      href: '/info',
-      icon: MoreIcon,
-      hideSubNav: true,
-      items: [
-        // {
-        //   label: t('Info'),
-        //   href: '/info',
-        // },
-        // {
-        //   label: t('IFO'),
-        //   href: '/ifo',
-        //   supportChainIds: SUPPORT_ONLY_BSC,
-        //   image: '/images/ifos/ifo-bunny.png',
-        // },
-        // {
-        //   label: t('Voting'),
-        //   href: '/voting',
-        //   supportChainIds: SUPPORT_ONLY_BSC,
-        //   image: '/images/voting/voting-bunny.png',
-        // },
-        // {
-        //   type: DropdownMenuItemType.DIVIDER,
-        // },
-        // {
-        //   label: t('Leaderboard'),
-        //   href: '/teams',
-        //   supportChainIds: SUPPORT_ONLY_BSC,
-        //   image: '/images/decorations/leaderboard.png',
-        // },
-        // {
-        //   type: DropdownMenuItemType.DIVIDER,
-        // },
-        // {
-        //   label: t('Blog'),
-        //   href: 'https://medium.com/pancakeswap',
-        //   type: DropdownMenuItemType.EXTERNAL_LINK,
-        // },
-        // {
-        //   label: t('Docs'),
-        //   href: 'https://docs.pancakeswap.finance',
-        //   type: DropdownMenuItemType.EXTERNAL_LINK,
-        // },
-      ].map((item) => addMenuItemSupported(item, chainId)),
-    },
-    {
-      label: 'Launchpad',
+      label: 'Presale',
       href: '/ifo',
-      icon: MoreIcon,
+      icon: IfoIcon,
       hideSubNav: true,
+      showItemsOnMobile: false,
       items: []
     },
     {
@@ -247,6 +255,7 @@ const config: (
       fillIcon: NftFillIcon,
       supportChainIds: SUPPORT_ONLY_BSC,
       image: '/images/decorations/nft.png',
+      showItemsOnMobile: false,
       items: [
         // {
         //   label: t('Overview'),
@@ -261,6 +270,14 @@ const config: (
         //   href: `${nftsBaseUrl}/activity`,
         // },
       ],
+    },
+    {
+      label: 'Docs',
+      href: '/docs',
+      icon: ResourcesIcon,
+      hideSubNav: true,
+      showItemsOnMobile: false,
+      items: []
     },
   ].map((item) => addMenuItemSupported(item, chainId))
 

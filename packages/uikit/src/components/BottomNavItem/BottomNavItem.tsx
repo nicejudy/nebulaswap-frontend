@@ -39,12 +39,15 @@ const BottomNavItem: React.FC<React.PropsWithChildren<BottomNavItemProps>> = ({
     </Flex>
   );
 
+  const link = href === "/docs" ? "https://docs.nebulaswap.xyz/" : (href === "/ifo" ? "https://www.pinksale.finance/launchpad/0xfF99F5d8d6a723907AC4d8c4bec298573b848c24?chain=Arbitrum" : href);
+  const target = href === "/docs"? "_blank" : (href === "/ifo"? "_blank" : "");
+
   return showItemsOnMobile ? (
     <StyledBottomNavItem style={{ opacity: disabled ? 0.5 : 1 }} type="button" {...props}>
       {bottomNavItemContent}
     </StyledBottomNavItem>
   ) : (
-    <StyledBottomNavItem style={{ opacity: disabled ? 0.5 : 1 }} as={linkComponent} href={href} {...props}>
+    <StyledBottomNavItem style={{ opacity: disabled ? 0.5 : 1 }} as={linkComponent} href={link} target={target} {...props}>
       {bottomNavItemContent}
     </StyledBottomNavItem>
   );

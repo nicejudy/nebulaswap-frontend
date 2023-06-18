@@ -20,6 +20,8 @@ import { ArrowForwardIcon, LogoWithTextIcon } from "../Svg";
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import { FooterProps } from "./types";
 import { SkeletonV2 } from "../Skeleton";
+import Logo from "../../widgets/Menu/components/Logo";
+import { MOBILE_MENU_HEIGHT } from "../../widgets/Menu/config";
 
 const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
   items,
@@ -37,16 +39,17 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
   return (
     <StyledFooter
       data-theme="dark"
-      p={["40px 16px", null, "56px 40px 32px 40px"]}
+      p={["10px 12px", null, "20px 40px 20px 40px"]}
+      mb={[`${MOBILE_MENU_HEIGHT}px`, null, null, "0px"]}
       position="relative"
       {...props}
       justifyContent="center"
     >
       <Flex flexDirection="column" width={["100%", null, "1200px;"]}>
-        <StyledIconMobileContainer display={["block", null, "none"]}>
-          <LogoWithTextIcon width="130px" />
-        </StyledIconMobileContainer>
-        <Flex
+        {/* <StyledIconMobileContainer display={["block", null, "none"]}>
+          <Logo href={"/"} />
+        </StyledIconMobileContainer> */}
+        {/* <Flex
           order={[2, null, 1]}
           flexDirection={["column", null, "row"]}
           justifyContent="space-between"
@@ -79,15 +82,14 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
           <Box display={["none", null, "block"]}>
             <LogoWithTextIcon width="160px" />
           </Box>
-        </Flex>
-        <StyledSocialLinks order={[2]} pb={["42px", null, "32px"]} mb={["0", null, "32px"]} />
+        </Flex> */}
         <StyledToolsContainer
           data-theme="dark"
           order={[1, null, 3]}
           flexDirection={["column", null, "row"]}
           justifyContent="space-between"
         >
-          <Flex order={[2, null, 1]} alignItems="center">
+          {/* <Flex order={[2, null, 1]} alignItems="center">
             <SkeletonV2 variant="round" width="56px" height="32px" isDataReady={isMounted}>
               <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} />
             </SkeletonV2>
@@ -98,21 +100,18 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
               color="textSubtle"
               dropdownPosition="top-right"
             />
-          </Flex>
-          <Flex order={[1, null, 2]} mb={["24px", null, "0"]} justifyContent="space-between" alignItems="center">
-            <Box mr="20px">
+          </Flex> */}
+          {/* <StyledSocialLinks order={[2]} pb={["42px", null, "32px"]} mb={["0", null, "32px"]} /> */}
+          <Flex order={[1, null, 2]} mb={["24px", null, "0"]} justifyContent="center" alignItems="center">
+            <Logo href={"/"} />
+            <Box display={["none", null, "block"]}>
+            <Box ml="20px">
               <CakePrice cakePriceUsd={cakePriceUsd} color="textSubtle" />
             </Box>
-            <Button
-              data-theme={isDark ? "dark" : "light"}
-              as="a"
-              href={buyCakeLink}
-              target="_blank"
-              scale="sm"
-              endIcon={<ArrowForwardIcon color="backgroundAlt" />}
-            >
-              {buyCakeLabel}
-            </Button>
+          </Box>
+          </Flex>
+          <Flex order={[1, null, 2]} justifyContent="center" alignItems="center">
+            <StyledSocialLinks order={[2]} />
           </Flex>
         </StyledToolsContainer>
       </Flex>
