@@ -1,7 +1,9 @@
 import BigNumber from 'bignumber.js'
-import { BIG_ONE, BIG_ZERO } from '@pancakeswap/utils/bigNumber'
+import { BIG_ONE, BIG_TWO, BIG_ZERO } from '@pancakeswap/utils/bigNumber'
 import { filterFarmsByQuoteToken, SerializedFarm } from '@pancakeswap/farms'
 import { ChainId } from '@pancakeswap/sdk'
+import Farm from '@pancakeswap/uikit/src/widgets/Farm/components/FarmTable/FarmTokenInfo'
+import { getBalanceAmount } from '@pancakeswap/utils/formatBalance'
 
 const getFarmFromTokenSymbol = (
   farms: SerializedFarm[],
@@ -91,6 +93,29 @@ const getFarmQuoteTokenPrice = (
 /**
  * @deprecated use packages/farms/src/farmPrice instead
  */
+
+const getLpTokenPrice = (
+  farm: SerializedFarm,
+  tokenPriceBusd: BigNumber,
+) => {
+  // LP token price
+  let lpTokenPrice = BIG_ZERO
+  const lpTotalSupply = farm.lpTotalSupply ? new BigNumber(farm.lpTotalSupply) : BIG_ZERO
+  const lpTotalInQuoteToken = farm.lpTotalInQuoteToken ? new BigNumber(farm.lpTotalInQuoteToken) : BIG_ZERO
+  if (lpTotalSupply.gt(0) && lpTotalInQuoteToken.gt(0)) {
+    const tokenAmountTotal = farm.tokenAmountTotal ? new BigNumber(farm.tokenAmountTotal) : BIG_ZERO
+    const valueOfBaseTokenInFarm = tokenPriceBusd.times(tokenAmountTotal)
+    // Double it to get overall value in LP
+    const overallValueOfAllTokensInFarm = valueOfBaseTokenInFarm.times(BIG_TWO)
+    // Divide total value of all tokens, by the number of LP tokens
+    const totalLpTokens = getBalanceAmount(lpTotalSupply);
+    // const totalLpTokens = lpTotalSupply.dividedBy(FixedNumber.from(getFullDecimalMultiplier(decimals)))
+    lpTokenPrice = overallValueOfAllTokensInFarm.div(totalLpTokens)
+  }
+
+  return lpTokenPrice
+}
+
 const getFarmsPrices = (farms: SerializedFarm[], chainId: number) => {
   if (!nativeStableLpMap[chainId]) {
     throw new Error(`chainId ${chainId} not supported`)
@@ -108,11 +133,13 @@ const getFarmsPrices = (farms: SerializedFarm[], chainId: number) => {
         : null
     const tokenPriceBusd = getFarmBaseTokenPrice(farm, quoteTokenFarm, nativePriceUSD, wNative, stable)
     const quoteTokenPriceBusd = getFarmQuoteTokenPrice(farm, quoteTokenFarm, nativePriceUSD, wNative, stable)
+    const lpTokenPriceBusd = getLpTokenPrice(farm, tokenPriceBusd)
 
     return {
       ...farm,
       tokenPriceBusd: tokenPriceBusd.toJSON(),
       quoteTokenPriceBusd: quoteTokenPriceBusd.toJSON(),
+      lpTokenPrice: lpTokenPriceBusd.toJSON(),
     }
   })
 

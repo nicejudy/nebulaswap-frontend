@@ -447,7 +447,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
             </LabelWrapper>
           </FilterContainer>
         </ControlContainer>
-        {isInactive && (
+        {/* {isInactive && (
           <FinishedTextContainer>
             <Text fontSize={['16px', null, '20px']} color="failure" pr="4px">
               {t("Don't see the farm you are staking?")}
@@ -469,7 +469,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
               </FinishedTextLink>
             </Flex>
           </FinishedTextContainer>
-        )}
+        )} */}
         {viewMode === ViewMode.TABLE ? (
           <Table farms={chosenFarmsMemoized} cakePrice={cakePrice} userDataReady={userDataReady} />
         ) : (
@@ -481,7 +481,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
           </Flex>
         )}
         {poolLength && <div ref={observerRef} />}
-        <StyledImage src="/images/decorations/3dpan.png" alt="Pancake illustration" width={120} height={103} />
+        {/* <StyledImage src="/images/decorations/3dpan.png" alt="Pancake illustration" width={120} height={103} /> */}
       </Page>
     </FarmsContext.Provider>
   )
