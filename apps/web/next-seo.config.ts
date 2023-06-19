@@ -14,6 +14,6 @@ export const SEO: DefaultSeoProps = {
     title: 'NebulaSwap - A next evolution DeFi exchange on Arbitrum',
     description:
       'The most popular AMM on Arbitrum! Earn NEBULA through yield farming, then stake it in Pools to earn more tokens! We provide ASTRO NFTs.',
-    images: [{ url: '/images/home/lunar-bunny/astronaut-moon.png' }],
+    images: [{ url: 'https://nebulaswap.xyz/images/home/lunar-bunny/astronaut-moon.png' }],
   },
 }
