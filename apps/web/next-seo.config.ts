@@ -7,8 +7,8 @@ export const SEO: DefaultSeoProps = {
     'Cheaper and faster than Uniswap? Discover NebulaSwap, the leading DEX on Arbitrum with the best farms in DeFi.',
   twitter: {
     cardType: 'summary_large_image',
-    handle: '@NebulaSwap',
-    site: '@NebulaSwap',
+    handle: '@NebulaSwapInfo',
+    site: '@NebulaSwapInfo',
   },
   openGraph: {
     title: 'NebulaSwap - A next evolution DeFi exchange on Arbitrum',
