@@ -80,7 +80,7 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
           // eslint-disable-next-line @next/next/no-sync-scripts
           <script src="https://public.bnbstatic.com/static/js/mp-webview-sdk/webview-v1.0.0.min.js" id="mp-webview" />
         )}
-        <meta property="twitter:image" content="https://nebulaswap.xyz/images/home/lunar-bunny/astronaut-moon.png"></meta>
+        <meta name="twitter:image" content="https://nebulaswap.xyz/images/home/lunar-bunny/astronaut-moon.png" />
       </Head>
       <DefaultSeo {...SEO} />
       <Providers store={store}>
